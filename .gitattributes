@@ -1,0 +1,24 @@
+# I fine riga si normalizzano a LF nel repository e tornano nativi al checkout.
+# Senza questa riga chi clona da Linux o macOS vede differenze fantasma su file
+# che nessuno ha toccato, perche' Windows scrive CRLF.
+* text=auto eol=lf
+
+# I file che devono restare LF anche su Windows, perche' li legge uno strumento
+# che non tollera il ritorno a capo di troppo.
+*.sh text eol=lf
+
+# Binari: niente conversione, altrimenti si corrompono.
+*.png binary
+*.jpg binary
+*.gif binary
+*.pdf binary
+*.zip binary
+
+# I CSV delle fixture sono confrontati byte per byte da un test che verifica
+# che il generatore sia deterministico: la normalizzazione li rovinerebbe.
+data/fixtures/*.csv -text
+
+# Statistiche di GitHub: la cartella della demo e' codice scritto a mano, non
+# una libreria importata, quindi va contata.
+web/** linguist-vendored=false
+docs/** linguist-documentation=true

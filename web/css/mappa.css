@@ -1,0 +1,313 @@
+/* I segni sulla carta: segnaposto, rotte, legenda, controlli di Leaflet.
+ *
+ * Perche' questo foglio esiste: Leaflet arriva con un suo aspetto, fatto di
+ * angoli arrotondati, ombre e riquadri bianchi, che non e' quello di una carta
+ * topografica. Qui si riportano i suoi controlli alla stessa grammatica del
+ * resto della pagina: linee da un pixel, nessuna ombra, fondo di carta.
+ *
+ * Le forme dei segnaposto non sono decorative e non si cambiano a gusto. La
+ * forma codifica il dominio del mezzo, il riempimento ne codifica lo stato, il
+ * raggio del focolaio codifica la potenza radiante e la trasparenza ne codifica
+ * l'eta'. Ogni canale porta una informazione e una sola.
+ */
+
+.mappa {
+  position: absolute;
+  inset: 0;
+  background: var(--carta-bassa);
+}
+
+/* Fondo cartografico. I tile arrivano grigio neutro: la desaturazione e una
+ * punta di calore li portano sul tono della carta, senza spingere tanto da
+ * fargli perdere contrasto con i segnaposto sopra. */
+.leaflet-tile-pane {
+  filter: saturate(0.55) sepia(0.14) brightness(1.02) contrast(0.96);
+}
+
+/* Di notte il fondo va rovesciato, non solo scurito. I tile di OpenStreetMap
+ * sono disegnati chiari: abbassare la luminosita' li lascia comunque piu'
+ * chiari dei segnaposto, e un triangolo in ardesia schiarita sopra un fondo
+ * bianco sporco non si legge. L'inversione con la rotazione di tinta porta la
+ * terraferma sul tono della pagina e lascia il mare e le strade come linee
+ * chiare, che e' il verso giusto di una carta notturna. */
+:root[data-tema="scuro"] .leaflet-tile-pane {
+  filter: invert(0.92) hue-rotate(180deg) saturate(0.4) brightness(0.95)
+    contrast(0.9);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="chiaro"]) .leaflet-tile-pane {
+    filter: invert(0.92) hue-rotate(180deg) saturate(0.4) brightness(0.95)
+      contrast(0.9);
+  }
+}
+
+/* ------------------------------------------------------- controlli Leaflet */
+
+.leaflet-container {
+  background: var(--carta-bassa);
+  font-family: var(--testo);
+  font-size: 12px;
+  outline-offset: 2px;
+}
+
+.leaflet-bar,
+.leaflet-control-attribution {
+  border: 1px solid var(--linea-forte) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: var(--carta-alta) !important;
+  color: var(--inchiostro) !important;
+}
+
+/* L'attribuzione del fornitore dei tile non e' una formalita' da nascondere:
+ * e' una condizione d'uso. Qui e' leggibile, non grigia su grigio. */
+.leaflet-control-attribution {
+  padding: 3px 7px !important;
+  font-size: 11.5px !important;
+  line-height: 1.35 !important;
+}
+
+.leaflet-control-attribution a {
+  color: var(--inchiostro) !important;
+  text-decoration: underline;
+}
+
+.leaflet-bar a {
+  background: var(--carta-alta);
+  color: var(--inchiostro);
+  border-bottom: 1px solid var(--linea);
+  border-radius: 0 !important;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+}
+
+.leaflet-bar a:hover {
+  background: var(--carta);
+  color: var(--inchiostro);
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--carta-alta);
+  color: var(--inchiostro);
+  border: 1px solid var(--linea-forte);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.leaflet-popup-content {
+  margin: 8px 10px;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.leaflet-popup-content b {
+  font-stretch: 90%;
+}
+
+.leaflet-popup-content .cifre {
+  font-size: 12px;
+}
+
+.leaflet-popup-close-button {
+  color: var(--inchiostro) !important;
+}
+
+/* ------------------------------------------------------- segnaposto */
+
+.segno {
+  display: block;
+  overflow: visible;
+}
+
+.segno:focus-visible {
+  outline: 2px solid var(--fuoco-focus);
+  outline-offset: 1px;
+}
+
+/* I segnaposto in SVG ricevono il focus da tastiera: la mappa non e' un'isola
+ * raggiungibile solo con il mouse. Il registro a destra resta comunque
+ * l'equivalente testuale completo. */
+.leaflet-interactive:focus-visible {
+  outline: 2px solid var(--fuoco-focus);
+  outline-offset: 1px;
+}
+
+/* Base: quadrato vuoto, il segno piu' silenzioso della carta, perche' una base
+ * non e' un evento: c'e' sempre. */
+.segno-base rect {
+  fill: none;
+  stroke: var(--ardesia);
+  stroke-width: 1.4;
+}
+
+.segno-base text {
+  fill: var(--inchiostro);
+  font-family: var(--testo);
+  font-size: 9.5px;
+  font-stretch: 78%;
+  paint-order: stroke;
+  stroke: var(--carta);
+  stroke-width: 2.4px;
+  stroke-linejoin: round;
+}
+
+/* L'alone di carta dietro le etichette serve al contrasto: il fondo
+ * cartografico non e' uniforme, e un testo che passa il controllo sopra il
+ * beige lo fallisce sopra una zona scura. */
+.segno-mezzo .corpo {
+  stroke: var(--ardesia);
+  stroke-width: 1.4;
+  fill: none;
+}
+
+.segno-mezzo.in-missione .corpo {
+  fill: var(--ardesia);
+}
+
+.segno-mezzo.di-riserva .corpo {
+  stroke-dasharray: 2.5 2;
+}
+
+.segno-mezzo.escluso .corpo {
+  stroke: var(--ardesia);
+  stroke-dasharray: 1 2.5;
+  opacity: 0.6;
+}
+
+/* ------------------------------------------------------- legenda */
+
+/* Una mappa senza legenda non e' leggibile. Questa e' fissa: non si apre, non
+ * si chiude, non si scopre al passaggio del mouse. */
+.legenda {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 800;
+  background: var(--carta-alta);
+  border: 1px solid var(--linea-forte);
+  padding: 9px 11px 10px;
+  max-width: 244px;
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+
+.legenda h2 {
+  font-size: 11.5px;
+  font-weight: 600;
+  font-stretch: 88%;
+  margin-bottom: 6px;
+}
+
+.legenda dl {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 4px 7px;
+  align-items: center;
+  margin: 0;
+}
+
+.legenda dt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+}
+
+.legenda dd {
+  margin: 0;
+  color: var(--inchiostro-tenue);
+}
+
+/* Lo stacco fra gruppi di segni e' una linea come quelle di una carta, non
+ * un elemento in piu': sta sul bordo della prima riga del gruppo, quindi il
+ * marcatore dell'elenco di definizioni resta valido. */
+.legenda .stacco {
+  border-top: 1px solid var(--linea);
+  padding-top: 5px;
+  margin-top: 3px;
+}
+
+/* ------------------------------------------------------- avvisi sulla mappa */
+
+/* Comincia dopo i comandi di zoom, non sotto. Leaflet disegna i suoi controlli
+ * a un livello piu' alto di questo riquadro, quindi un avviso allineato al
+ * bordo sinistro si fa mangiare la prima parola proprio dal comando che gli
+ * sta sopra. Un avviso che si legge a meta' e' peggio di nessun avviso. */
+.avviso-mappa {
+  position: absolute;
+  left: 52px;
+  top: 12px;
+  right: 12px;
+  z-index: 800;
+  max-width: 460px;
+  background: var(--carta-alta);
+  border: 1px solid var(--linea-forte);
+  padding: 8px 11px;
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.avviso-mappa[hidden] {
+  display: none;
+}
+
+.avviso-mappa b {
+  font-stretch: 90%;
+}
+
+/* ------------------------------------------------------- pannello del vuoto */
+
+.mappa-assente {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px;
+  text-align: center;
+  background: var(--carta-bassa);
+  color: var(--inchiostro);
+  z-index: 900;
+}
+
+.mappa-assente[hidden] {
+  display: none;
+}
+
+.mappa-assente p {
+  max-width: 46ch;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ------------------------------------------------------- schermi stretti */
+
+/* La legenda resta fissa e obbligatoria anche qui, ma su uno schermo da
+ * telefono un riquadro da 244 px copre piu' di meta' della carta. Si stringe
+ * e si rimpicciolisce: leggerla resta possibile, vedere la carta anche. */
+@media (max-width: 560px) {
+  .legenda {
+    left: 8px;
+    bottom: 8px;
+    max-width: 178px;
+    padding: 7px 8px 8px;
+    font-size: 10.5px;
+    line-height: 1.3;
+  }
+
+  .legenda dl {
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 3px 5px;
+  }
+
+  .avviso-mappa {
+    left: 8px;
+    right: 8px;
+    top: 46px;
+  }
+}

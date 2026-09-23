@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="it" data-tema="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tagliafuoco, note sui dati e sui limiti</title>
+    <meta
+      name="description"
+      content="Da dove vengono i dati della demo di Tagliafuoco, che cosa la simulazione non copre e che cosa la pagina memorizza nel browser."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3Crect%20width='16'%20height='16'%20fill='%23EFE9DC'/%3E%3Crect%20x='0.5'%20y='0.5'%20width='15'%20height='15'%20fill='none'%20stroke='%2355606B'/%3E%3Ccircle%20cx='8'%20cy='8'%20r='3.6'%20fill='%23A8331D'/%3E%3C/svg%3E"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..115,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    />
+    <link rel="stylesheet" href="css/console.css" />
+    <link rel="stylesheet" href="css/note.css" />
+  </head>
+
+  <body>
+    <main class="foglio">
+      <header class="foglio-testata">
+        <h1>Tagliafuoco</h1>
+        <p class="avvertenza">simulatore, non strumento operativo</p>
+        <a class="ritorno" href="index.html">Torna alla mappa</a>
+      </header>
+
+      <h2>Che cosa e' questa demo</h2>
+      <p>
+        Una mappa della Calabria che rigioca una stagione di incendi e mostra,
+        per alcune finestre, la catena completa del sistema: l'ordine del
+        coordinatore in italiano, i vincoli che il traduttore ne ricava, il
+        piano prodotto dal risolutore, e il verdetto di un validatore scritto
+        a parte che ricontrolla il piano senza fidarsi del risolutore.
+      </p>
+      <p>
+        Tagliafuoco e' un progetto di studio. Non e' certificato, non e'
+        collegato a nessuna sala operativa e non va usato per dirigere
+        interventi reali. I numeri che mostra sono il risultato di un modello,
+        e un modello si giudica dalle ipotesi che dichiara.
+      </p>
+
+      <h2>Da dove vengono i dati</h2>
+
+      <h3>I rilevamenti satellitari sono sintetici</h3>
+      <p>
+        I file in <code>data/fixtures/</code> hanno il formato esatto
+        dell'archivio di NASA FIRMS, colonna per colonna, ma
+        <b>non sono osservazioni</b>. Sono generati da
+        <code>genera_fixture_2025.py</code> con un generatore pseudocasuale a
+        seme fisso: nessuna riga corrisponde a un incendio realmente avvenuto,
+        nessuna coordinata a un focolaio reale, nessuna data a un'allerta reale.
+      </p>
+      <p>
+        Esistono per una ragione sola: chiunque scarichi il progetto deve poter
+        lanciare tutto, test compresi, senza la chiave di NASA FIRMS. La chiave
+        abilita i dati veri, non e' un prerequisito. Di conseguenza ogni cifra
+        che questa pagina mostra (copertura, tempi di risposta, litri erogati)
+        e' calcolata su dati generati e non dice niente sulla stagione 2025
+        vera.
+      </p>
+      <p>
+        Il generatore riproduce alcune proprieta' statistiche reali, perche'
+        senza quelle il confronto fra pianificatori non significherebbe nulla:
+        la stagionalita' con il picco di luglio e agosto, il ciclo giornaliero,
+        la concentrazione sui massicci (Sila, Aspromonte, Pollino, Serre), la
+        potenza radiante a coda lunga e la prevalenza di eventi piccoli.
+      </p>
+
+      <h3>Basi, mezzi e punti d'acqua sono plausibili, non reali</h3>
+      <p>
+        I dati statici in <code>data/static/</code> non sono l'inventario del
+        servizio antincendio della Regione Calabria, ne' della flotta dello
+        Stato, ne' del Corpo nazionale dei vigili del fuoco.
+      </p>
+      <ul>
+        <li>
+          Le basi sono luoghi veri con coordinate reali (aeroporti,
+          elisuperfici, comandi dei vigili del fuoco), ma il fatto che una certa
+          base ospiti davvero un certo mezzo non e' verificato.
+        </li>
+        <li>
+          La flotta imita per tipologie e ordini di grandezza il dispositivo
+          aereo nazionale e regionale. Matricole, numeri e dislocazioni sono
+          inventati.
+        </li>
+        <li>
+          Velocita', capacita', autonomia e costo orario sono valori di manuale
+          arrotondati, presi dalle schede pubbliche dei costruttori. Non sono
+          dati certificati.
+        </li>
+        <li>
+          Le aree protette sono approssimate a cerchi di pari area, non a
+          poligoni. Per parchi allungati come la Sila e il Pollino il cerchio
+          sbaglia ai bordi, in eccesso e in difetto.
+        </li>
+        <li>
+          Popolazione e quota dei comuni sono cifre ISTAT arrotondate alle
+          centinaia, riferite al capoluogo comunale.
+        </li>
+      </ul>
+
+      <h3>Il fondo cartografico</h3>
+      <p>
+        I riquadri della carta arrivano da OpenStreetMap e sono opera dei suoi
+        contributori, distribuiti secondo la
+        <a href="https://www.openstreetmap.org/copyright"
+          >licenza indicata da OpenStreetMap</a
+        >. L'attribuzione resta visibile in basso a destra sulla mappa: e' una
+        condizione d'uso, non una formalita'.
+      </p>
+      <p>
+        Se i riquadri non arrivano, perche' non c'e' rete o perche' il server
+        non risponde, la pagina lo scrive e continua a funzionare: i segnaposto
+        restano disegnati sopra un fondo neutro e le posizioni restano esatte.
+        Manca solo il disegno di coste, rilievi e strade.
+      </p>
+
+      <h3>I numeri della demo escono dalla pipeline vera</h3>
+      <p>
+        I file in <code>web/data/</code> sono prodotti da
+        <code>genera_dati_demo.py</code>, che esegue la catena completa:
+        lettura delle fixture, raggruppamento spaziotemporale, arricchimento
+        territoriale, traduzione dell'ordine, risolutore CP-SAT, baseline e
+        validatore. Nessun numero e' scritto a mano per riempire un riquadro. Se
+        una finestra produce un piano respinto, la demo mostra il piano
+        respinto.
+      </p>
+      <p>
+        Dove un numero non esiste, il riquadro lo scrive invece di mettere uno
+        zero. Il caso ricorrente e' il tempo di risposta: il validatore lo
+        misura sulle assegnazioni che ha giudicato eseguibili, e se non ne
+        resta nessuna la media vale zero perche' e' il valore neutro di una
+        somma vuota, non perche' qualcuno sia arrivato all'istante. In quel
+        caso la pagina scrive <b>nessun arrivo</b>. Allo stesso modo una
+        finestra senza focolai non ha una copertura dello zero per cento: non
+        ha una copertura.
+      </p>
+
+      <h2>Che cosa la simulazione non copre</h2>
+      <dl>
+        <dt>ricostruzione del movimento</dt>
+        <dd>
+          Il piano dice quando un mezzo parte, quando arriva e quando rientra.
+          Non dice dove si trova a meta' strada. La posizione che si vede
+          muoversi e' interpolata linearmente fra la base e il focolaio, ed e'
+          una ricostruzione, non un dato. Il volo di ritorno e' disegnato lungo
+          la stessa linea e con la stessa durata dell'andata, perche' il piano
+          non distingue le due tratte.
+        </dd>
+
+        <dt>comparsa dei focolai</dt>
+        <dd>
+          Questa invece non e' interpolata. Un focolaio compare nel minuto in
+          cui il satellite lo ha rilevato e non un istante prima. Sbiadisce con
+          il passare delle ore perche' nessuno sa se sia ancora acceso: il
+          satellite dice quando ha visto un pixel caldo, non quando l'incendio
+          si e' spento.
+        </dd>
+
+        <dt>durata e spegnimento</dt>
+        <dd>
+          Il sistema non modella la propagazione del fronte, il vento locale,
+          l'umidita' del combustibile ne' l'effetto reale di uno sgancio. Il
+          fabbisogno d'acqua di un focolaio e' una formula di taratura
+          dichiarata (centomila litri per chilometro quadrato, corretti per
+          copertura del suolo e intensita'), non una verita' fisica.
+        </dd>
+
+        <dt>strade</dt>
+        <dd>
+          I mezzi terrestri non seguono un grafo stradale: percorrono la
+          distanza in linea d'aria moltiplicata per un fattore di tortuosita'
+          di 1,45, che e' il valore usato in letteratura per territorio
+          montano. Su un singolo tragitto puo' sbagliare di parecchio.
+        </dd>
+
+        <dt>i piani respinti</dt>
+        <dd>
+          Quando il validatore respinge un piano, la demo lo mostra respinto e
+          scrive le violazioni. Non e' un guasto della pagina: e' il motivo per
+          cui il validatore e' un programma separato. Un validatore che
+          approvasse sempre non servirebbe a niente.
+        </dd>
+
+        <dt>mezzi fermi alla base</dt>
+        <dd>
+          Piu' mezzi condividono la stessa base. Se fossero disegnati tutti sul
+          punto esatto se ne vedrebbe uno solo, quindi a riposo sono sparpagliati
+          su un anello di circa quattro chilometri attorno alla base, in ordine
+          stabile. Quella posizione e' una convenzione di disegno, non un dato:
+          il mezzo fermo sta in base. Quando parte per una missione torna sulle
+          coordinate vere.
+        </dd>
+
+        <dt>mezzi fermi nelle finestre calcolate dal servizio</dt>
+        <dd>
+          Nelle sei finestre precalcolate i mezzi tenuti di riserva hanno il
+          contorno tratteggiato, perche' lo script Python risolve i selettori
+          dell'ordine e sa quali mezzi sono coinvolti. Nelle finestre calcolate
+          al momento dal servizio HTTP quell'informazione non attraversa la
+          risposta, quindi i mezzi non impiegati restano semplicemente fermi,
+          senza tratteggio.
+        </dd>
+      </dl>
+
+      <h2>Che cosa la pagina memorizza nel browser</h2>
+      <p>
+        Non ci sono cookie, non c'e' nessuna misurazione del traffico, nessuna
+        rete pubblicitaria e nessun invio di dati a terzi. Restano in pagina due
+        valori nella memoria locale del browser
+        (<code>localStorage</code>), leggibili solo da questo sito:
+      </p>
+      <dl>
+        <dt>tagliafuoco.tema</dt>
+        <dd>
+          <code>chiaro</code> oppure <code>scuro</code>. Ricorda la scelta
+          dell'interruttore del tema, cosi' non va rifatta a ogni visita. Se il
+          valore non c'e', vale la preferenza del sistema operativo.
+        </dd>
+        <dt>tagliafuoco.servizio</dt>
+        <dd>
+          L'indirizzo del servizio HTTP, scritto solo se e' stato indicato a
+          mano con il parametro <code>?api=</code> nell'indirizzo della pagina.
+          Senza quel parametro la chiave non viene creata.
+        </dd>
+      </dl>
+      <p>
+        Per cancellarli basta svuotare i dati del sito dalle impostazioni del
+        browser. Aprire la pagina con <code>?api=</code> vuoto rimuove il solo
+        indirizzo memorizzato. Se la memoria locale non e' disponibile, per
+        esempio in una finestra anonima o con i dati dei siti bloccati, la
+        pagina funziona lo stesso: dimentica le due preferenze e nient'altro.
+      </p>
+      <p>
+        Le richieste di rete che la pagina fa sono tre: i riquadri della carta a
+        OpenStreetMap, i caratteri e la libreria della mappa alle reti di
+        distribuzione indicate nel codice sorgente, e, solo quando si preme
+        Pianifica, l'ordine scritto nel campo di testo al servizio HTTP di
+        Tagliafuoco. Se il servizio gira sulla stessa macchina, quel testo non
+        lascia la macchina.
+      </p>
+
+      <h2>Riprodurre i dati</h2>
+      <p>
+        Le fixture e i file della demo si rigenerano con due comandi, senza
+        rete e senza chiavi:
+      </p>
+      <ul>
+        <li><code>.venv/Scripts/python.exe data/fixtures/genera_fixture_2025.py</code></li>
+        <li><code>.venv/Scripts/python.exe web/data/genera_dati_demo.py</code></li>
+      </ul>
+      <p>
+        Il primo e' deterministico fino al byte: usa un generatore
+        pseudocasuale a seme fisso e non scrive niente che dipenda
+        dall'orologio, quindi due esecuzioni producono file identici.
+      </p>
+      <p>
+        Il secondo no, e la differenza va detta. I file che scrive portano
+        l'istante della generazione e i secondi di orologio spesi dal
+        risolutore, che cambiano a ogni esecuzione. Cambia anche, in
+        principio, il piano: il risolutore riceve un limite di tempo, e
+        quando lo esaurisce prima di aver dimostrato l'ottimo restituisce il
+        miglior piano trovato fino a quel punto, che su una macchina piu'
+        veloce o piu' carica puo' essere un altro. Cinque delle sei finestre
+        pubblicate finiscono proprio cosi', e lo dichiarano nelle note del
+        piano. Su questa macchina due esecuzioni di fila con lo stesso limite
+        hanno prodotto le stesse assegnazioni in tutte e sei le finestre, ma
+        e' una verifica, non una garanzia: per confrontare due esecuzioni va
+        annotato il limite di tempo usato.
+      </p>
+      <p>
+        Le istruzioni per avviare la demo stanno in
+        <code>web/README.md</code>.
+      </p>
+
+      <footer class="foglio-piede">
+        <p>
+          Tagliafuoco e' un simulatore a scopo di studio. Non e' uno strumento
+          operativo, non e' certificato e non va usato per dirigere interventi
+          reali di lotta agli incendi boschivi.
+          <a href="index.html">Torna alla mappa</a>.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

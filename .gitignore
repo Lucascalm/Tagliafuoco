@@ -1,0 +1,32 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/
+.env
+.env.local
+
+# dati scaricati: si rigenerano, non si versionano
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# output delle valutazioni
+reports/
+*.log
+
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# strumenti locali
+.playwright-cli/
+
+# appunti di lavoro, non fanno parte del progetto
+appunti/

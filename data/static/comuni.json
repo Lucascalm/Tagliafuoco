@@ -1,0 +1,1250 @@
+[
+  {
+    "nome": "Corigliano-Rossano",
+    "provincia": "Cosenza",
+    "lat": 39.5758,
+    "lon": 16.6339,
+    "popolazione": 74000,
+    "altitudine_m": 219
+  },
+  {
+    "nome": "Cosenza",
+    "provincia": "Cosenza",
+    "lat": 39.2983,
+    "lon": 16.2533,
+    "popolazione": 66000,
+    "altitudine_m": 238
+  },
+  {
+    "nome": "Rende",
+    "provincia": "Cosenza",
+    "lat": 39.3333,
+    "lon": 16.1833,
+    "popolazione": 35000,
+    "altitudine_m": 474
+  },
+  {
+    "nome": "Castrovillari",
+    "provincia": "Cosenza",
+    "lat": 39.8167,
+    "lon": 16.2,
+    "popolazione": 21000,
+    "altitudine_m": 350
+  },
+  {
+    "nome": "Acri",
+    "provincia": "Cosenza",
+    "lat": 39.4917,
+    "lon": 16.3833,
+    "popolazione": 20000,
+    "altitudine_m": 720
+  },
+  {
+    "nome": "Montalto Uffugo",
+    "provincia": "Cosenza",
+    "lat": 39.4033,
+    "lon": 16.16,
+    "popolazione": 19000,
+    "altitudine_m": 468
+  },
+  {
+    "nome": "Cassano all'Ionio",
+    "provincia": "Cosenza",
+    "lat": 39.7833,
+    "lon": 16.3167,
+    "popolazione": 17000,
+    "altitudine_m": 250
+  },
+  {
+    "nome": "San Giovanni in Fiore",
+    "provincia": "Cosenza",
+    "lat": 39.255,
+    "lon": 16.697,
+    "popolazione": 16000,
+    "altitudine_m": 1049
+  },
+  {
+    "nome": "Paola",
+    "provincia": "Cosenza",
+    "lat": 39.36,
+    "lon": 16.04,
+    "popolazione": 15500,
+    "altitudine_m": 94
+  },
+  {
+    "nome": "Amantea",
+    "provincia": "Cosenza",
+    "lat": 39.1333,
+    "lon": 16.075,
+    "popolazione": 13500,
+    "altitudine_m": 50
+  },
+  {
+    "nome": "Scalea",
+    "provincia": "Cosenza",
+    "lat": 39.8133,
+    "lon": 15.793,
+    "popolazione": 10000,
+    "altitudine_m": 22
+  },
+  {
+    "nome": "Cetraro",
+    "provincia": "Cosenza",
+    "lat": 39.515,
+    "lon": 15.942,
+    "popolazione": 9700,
+    "altitudine_m": 120
+  },
+  {
+    "nome": "Bisignano",
+    "provincia": "Cosenza",
+    "lat": 39.51,
+    "lon": 16.28,
+    "popolazione": 9700,
+    "altitudine_m": 350
+  },
+  {
+    "nome": "Crosia",
+    "provincia": "Cosenza",
+    "lat": 39.57,
+    "lon": 16.77,
+    "popolazione": 9600,
+    "altitudine_m": 140
+  },
+  {
+    "nome": "Castrolibero",
+    "provincia": "Cosenza",
+    "lat": 39.31,
+    "lon": 16.2,
+    "popolazione": 9500,
+    "altitudine_m": 350
+  },
+  {
+    "nome": "Casali del Manco",
+    "provincia": "Cosenza",
+    "lat": 39.267,
+    "lon": 16.36,
+    "popolazione": 9500,
+    "altitudine_m": 800
+  },
+  {
+    "nome": "Mendicino",
+    "provincia": "Cosenza",
+    "lat": 39.26,
+    "lon": 16.19,
+    "popolazione": 9400,
+    "altitudine_m": 450
+  },
+  {
+    "nome": "Luzzi",
+    "provincia": "Cosenza",
+    "lat": 39.45,
+    "lon": 16.29,
+    "popolazione": 8800,
+    "altitudine_m": 450
+  },
+  {
+    "nome": "Trebisacce",
+    "provincia": "Cosenza",
+    "lat": 39.87,
+    "lon": 16.53,
+    "popolazione": 8700,
+    "altitudine_m": 61
+  },
+  {
+    "nome": "Belvedere Marittimo",
+    "provincia": "Cosenza",
+    "lat": 39.618,
+    "lon": 15.863,
+    "popolazione": 8700,
+    "altitudine_m": 150
+  },
+  {
+    "nome": "Cariati",
+    "provincia": "Cosenza",
+    "lat": 39.495,
+    "lon": 16.95,
+    "popolazione": 8100,
+    "altitudine_m": 55
+  },
+  {
+    "nome": "Fuscaldo",
+    "provincia": "Cosenza",
+    "lat": 39.415,
+    "lon": 16.03,
+    "popolazione": 7800,
+    "altitudine_m": 250
+  },
+  {
+    "nome": "San Marco Argentano",
+    "provincia": "Cosenza",
+    "lat": 39.56,
+    "lon": 16.12,
+    "popolazione": 7300,
+    "altitudine_m": 480
+  },
+  {
+    "nome": "Roggiano Gravina",
+    "provincia": "Cosenza",
+    "lat": 39.62,
+    "lon": 16.16,
+    "popolazione": 6700,
+    "altitudine_m": 285
+  },
+  {
+    "nome": "Praia a Mare",
+    "provincia": "Cosenza",
+    "lat": 39.895,
+    "lon": 15.783,
+    "popolazione": 6500,
+    "altitudine_m": 8
+  },
+  {
+    "nome": "Rogliano",
+    "provincia": "Cosenza",
+    "lat": 39.18,
+    "lon": 16.32,
+    "popolazione": 5500,
+    "altitudine_m": 650
+  },
+  {
+    "nome": "Diamante",
+    "provincia": "Cosenza",
+    "lat": 39.68,
+    "lon": 15.82,
+    "popolazione": 5300,
+    "altitudine_m": 14
+  },
+  {
+    "nome": "Villapiana",
+    "provincia": "Cosenza",
+    "lat": 39.845,
+    "lon": 16.46,
+    "popolazione": 5300,
+    "altitudine_m": 200
+  },
+  {
+    "nome": "Spezzano della Sila",
+    "provincia": "Cosenza",
+    "lat": 39.3,
+    "lon": 16.33,
+    "popolazione": 4500,
+    "altitudine_m": 872
+  },
+  {
+    "nome": "Torano Castello",
+    "provincia": "Cosenza",
+    "lat": 39.5,
+    "lon": 16.17,
+    "popolazione": 4500,
+    "altitudine_m": 350
+  },
+  {
+    "nome": "Morano Calabro",
+    "provincia": "Cosenza",
+    "lat": 39.843,
+    "lon": 16.137,
+    "popolazione": 4300,
+    "altitudine_m": 694
+  },
+  {
+    "nome": "Dipignano",
+    "provincia": "Cosenza",
+    "lat": 39.23,
+    "lon": 16.26,
+    "popolazione": 4300,
+    "altitudine_m": 570
+  },
+  {
+    "nome": "Altomonte",
+    "provincia": "Cosenza",
+    "lat": 39.7,
+    "lon": 16.13,
+    "popolazione": 4200,
+    "altitudine_m": 455
+  },
+  {
+    "nome": "Lattarico",
+    "provincia": "Cosenza",
+    "lat": 39.45,
+    "lon": 16.14,
+    "popolazione": 3900,
+    "altitudine_m": 350
+  },
+  {
+    "nome": "Fagnano Castello",
+    "provincia": "Cosenza",
+    "lat": 39.57,
+    "lon": 16.06,
+    "popolazione": 3700,
+    "altitudine_m": 510
+  },
+  {
+    "nome": "Saracena",
+    "provincia": "Cosenza",
+    "lat": 39.78,
+    "lon": 16.16,
+    "popolazione": 3600,
+    "altitudine_m": 606
+  },
+  {
+    "nome": "San Demetrio Corone",
+    "provincia": "Cosenza",
+    "lat": 39.57,
+    "lon": 16.37,
+    "popolazione": 3200,
+    "altitudine_m": 521
+  },
+  {
+    "nome": "Rocca Imperiale",
+    "provincia": "Cosenza",
+    "lat": 40.112,
+    "lon": 16.58,
+    "popolazione": 3200,
+    "altitudine_m": 210
+  },
+  {
+    "nome": "Mormanno",
+    "provincia": "Cosenza",
+    "lat": 39.888,
+    "lon": 15.993,
+    "popolazione": 3100,
+    "altitudine_m": 840
+  },
+  {
+    "nome": "Longobucco",
+    "provincia": "Cosenza",
+    "lat": 39.45,
+    "lon": 16.61,
+    "popolazione": 3000,
+    "altitudine_m": 770
+  },
+  {
+    "nome": "Verbicaro",
+    "provincia": "Cosenza",
+    "lat": 39.755,
+    "lon": 15.913,
+    "popolazione": 2900,
+    "altitudine_m": 400
+  },
+  {
+    "nome": "Celico",
+    "provincia": "Cosenza",
+    "lat": 39.31,
+    "lon": 16.35,
+    "popolazione": 2800,
+    "altitudine_m": 750
+  },
+  {
+    "nome": "Aprigliano",
+    "provincia": "Cosenza",
+    "lat": 39.23,
+    "lon": 16.34,
+    "popolazione": 2700,
+    "altitudine_m": 750
+  },
+  {
+    "nome": "Amendolara",
+    "provincia": "Cosenza",
+    "lat": 39.95,
+    "lon": 16.58,
+    "popolazione": 2700,
+    "altitudine_m": 230
+  },
+  {
+    "nome": "San Fili",
+    "provincia": "Cosenza",
+    "lat": 39.34,
+    "lon": 16.14,
+    "popolazione": 2600,
+    "altitudine_m": 555
+  },
+  {
+    "nome": "Santa Sofia d'Epiro",
+    "provincia": "Cosenza",
+    "lat": 39.54,
+    "lon": 16.33,
+    "popolazione": 2600,
+    "altitudine_m": 550
+  },
+  {
+    "nome": "Cerchiara di Calabria",
+    "provincia": "Cosenza",
+    "lat": 39.85,
+    "lon": 16.38,
+    "popolazione": 2300,
+    "altitudine_m": 650
+  },
+  {
+    "nome": "Lungro",
+    "provincia": "Cosenza",
+    "lat": 39.74,
+    "lon": 16.12,
+    "popolazione": 2300,
+    "altitudine_m": 600
+  },
+  {
+    "nome": "Frascineto",
+    "provincia": "Cosenza",
+    "lat": 39.83,
+    "lon": 16.27,
+    "popolazione": 2100,
+    "altitudine_m": 488
+  },
+  {
+    "nome": "Oriolo",
+    "provincia": "Cosenza",
+    "lat": 40.05,
+    "lon": 16.44,
+    "popolazione": 2100,
+    "altitudine_m": 450
+  },
+  {
+    "nome": "Malvito",
+    "provincia": "Cosenza",
+    "lat": 39.6,
+    "lon": 16.08,
+    "popolazione": 1800,
+    "altitudine_m": 420
+  },
+  {
+    "nome": "Bocchigliero",
+    "provincia": "Cosenza",
+    "lat": 39.42,
+    "lon": 16.75,
+    "popolazione": 1300,
+    "altitudine_m": 870
+  },
+  {
+    "nome": "Orsomarso",
+    "provincia": "Cosenza",
+    "lat": 39.8,
+    "lon": 15.9,
+    "popolazione": 1200,
+    "altitudine_m": 120
+  },
+  {
+    "nome": "Acquaformosa",
+    "provincia": "Cosenza",
+    "lat": 39.72,
+    "lon": 16.12,
+    "popolazione": 1000,
+    "altitudine_m": 780
+  },
+  {
+    "nome": "Civita",
+    "provincia": "Cosenza",
+    "lat": 39.825,
+    "lon": 16.315,
+    "popolazione": 900,
+    "altitudine_m": 450
+  },
+  {
+    "nome": "Papasidero",
+    "provincia": "Cosenza",
+    "lat": 39.85,
+    "lon": 15.91,
+    "popolazione": 800,
+    "altitudine_m": 210
+  },
+  {
+    "nome": "San Lorenzo Bellizzi",
+    "provincia": "Cosenza",
+    "lat": 39.84,
+    "lon": 16.34,
+    "popolazione": 700,
+    "altitudine_m": 830
+  },
+  {
+    "nome": "Alessandria del Carretto",
+    "provincia": "Cosenza",
+    "lat": 39.97,
+    "lon": 16.38,
+    "popolazione": 400,
+    "altitudine_m": 1000
+  },
+  {
+    "nome": "Catanzaro",
+    "provincia": "Catanzaro",
+    "lat": 38.9098,
+    "lon": 16.5877,
+    "popolazione": 84000,
+    "altitudine_m": 320
+  },
+  {
+    "nome": "Lamezia Terme",
+    "provincia": "Catanzaro",
+    "lat": 38.965,
+    "lon": 16.308,
+    "popolazione": 70000,
+    "altitudine_m": 216
+  },
+  {
+    "nome": "Soverato",
+    "provincia": "Catanzaro",
+    "lat": 38.687,
+    "lon": 16.551,
+    "popolazione": 8700,
+    "altitudine_m": 47
+  },
+  {
+    "nome": "Sellia Marina",
+    "provincia": "Catanzaro",
+    "lat": 38.87,
+    "lon": 16.73,
+    "popolazione": 7300,
+    "altitudine_m": 12
+  },
+  {
+    "nome": "Curinga",
+    "provincia": "Catanzaro",
+    "lat": 38.83,
+    "lon": 16.31,
+    "popolazione": 6600,
+    "altitudine_m": 350
+  },
+  {
+    "nome": "Girifalco",
+    "provincia": "Catanzaro",
+    "lat": 38.82,
+    "lon": 16.43,
+    "popolazione": 5800,
+    "altitudine_m": 470
+  },
+  {
+    "nome": "Chiaravalle Centrale",
+    "provincia": "Catanzaro",
+    "lat": 38.68,
+    "lon": 16.41,
+    "popolazione": 5400,
+    "altitudine_m": 550
+  },
+  {
+    "nome": "Botricello",
+    "provincia": "Catanzaro",
+    "lat": 38.93,
+    "lon": 16.85,
+    "popolazione": 4900,
+    "altitudine_m": 5
+  },
+  {
+    "nome": "Gizzeria",
+    "provincia": "Catanzaro",
+    "lat": 38.98,
+    "lon": 16.2,
+    "popolazione": 4600,
+    "altitudine_m": 500
+  },
+  {
+    "nome": "Nocera Terinese",
+    "provincia": "Catanzaro",
+    "lat": 39.03,
+    "lon": 16.15,
+    "popolazione": 4500,
+    "altitudine_m": 240
+  },
+  {
+    "nome": "Simeri Crichi",
+    "provincia": "Catanzaro",
+    "lat": 38.92,
+    "lon": 16.67,
+    "popolazione": 4500,
+    "altitudine_m": 330
+  },
+  {
+    "nome": "Sersale",
+    "provincia": "Catanzaro",
+    "lat": 39.01,
+    "lon": 16.73,
+    "popolazione": 4400,
+    "altitudine_m": 750
+  },
+  {
+    "nome": "Maida",
+    "provincia": "Catanzaro",
+    "lat": 38.85,
+    "lon": 16.36,
+    "popolazione": 4400,
+    "altitudine_m": 300
+  },
+  {
+    "nome": "Guardavalle",
+    "provincia": "Catanzaro",
+    "lat": 38.5044,
+    "lon": 16.4996,
+    "popolazione": 4300,
+    "altitudine_m": 350
+  },
+  {
+    "nome": "Cropani",
+    "provincia": "Catanzaro",
+    "lat": 38.96,
+    "lon": 16.78,
+    "popolazione": 4300,
+    "altitudine_m": 370
+  },
+  {
+    "nome": "Tiriolo",
+    "provincia": "Catanzaro",
+    "lat": 38.94,
+    "lon": 16.51,
+    "popolazione": 3700,
+    "altitudine_m": 690
+  },
+  {
+    "nome": "Falerna",
+    "provincia": "Catanzaro",
+    "lat": 39.0,
+    "lon": 16.17,
+    "popolazione": 3700,
+    "altitudine_m": 500
+  },
+  {
+    "nome": "Squillace",
+    "provincia": "Catanzaro",
+    "lat": 38.78,
+    "lon": 16.52,
+    "popolazione": 3500,
+    "altitudine_m": 344
+  },
+  {
+    "nome": "Soveria Mannelli",
+    "provincia": "Catanzaro",
+    "lat": 39.08,
+    "lon": 16.37,
+    "popolazione": 3100,
+    "altitudine_m": 750
+  },
+  {
+    "nome": "Decollatura",
+    "provincia": "Catanzaro",
+    "lat": 39.04,
+    "lon": 16.35,
+    "popolazione": 3000,
+    "altitudine_m": 750
+  },
+  {
+    "nome": "Badolato",
+    "provincia": "Catanzaro",
+    "lat": 38.57,
+    "lon": 16.59,
+    "popolazione": 3000,
+    "altitudine_m": 240
+  },
+  {
+    "nome": "Taverna",
+    "provincia": "Catanzaro",
+    "lat": 39.01,
+    "lon": 16.58,
+    "popolazione": 2600,
+    "altitudine_m": 528
+  },
+  {
+    "nome": "Santa Caterina dello Ionio",
+    "provincia": "Catanzaro",
+    "lat": 38.54,
+    "lon": 16.52,
+    "popolazione": 2000,
+    "altitudine_m": 355
+  },
+  {
+    "nome": "Cortale",
+    "provincia": "Catanzaro",
+    "lat": 38.83,
+    "lon": 16.42,
+    "popolazione": 2000,
+    "altitudine_m": 430
+  },
+  {
+    "nome": "Zagarise",
+    "provincia": "Catanzaro",
+    "lat": 38.98,
+    "lon": 16.65,
+    "popolazione": 1600,
+    "altitudine_m": 570
+  },
+  {
+    "nome": "Montauro",
+    "provincia": "Catanzaro",
+    "lat": 38.75,
+    "lon": 16.51,
+    "popolazione": 1500,
+    "altitudine_m": 260
+  },
+  {
+    "nome": "Conflenti",
+    "provincia": "Catanzaro",
+    "lat": 39.07,
+    "lon": 16.28,
+    "popolazione": 1300,
+    "altitudine_m": 700
+  },
+  {
+    "nome": "Magisano",
+    "provincia": "Catanzaro",
+    "lat": 39.0,
+    "lon": 16.6,
+    "popolazione": 1200,
+    "altitudine_m": 760
+  },
+  {
+    "nome": "Petrizzi",
+    "provincia": "Catanzaro",
+    "lat": 38.68,
+    "lon": 16.47,
+    "popolazione": 1100,
+    "altitudine_m": 420
+  },
+  {
+    "nome": "Albi",
+    "provincia": "Catanzaro",
+    "lat": 39.02,
+    "lon": 16.55,
+    "popolazione": 900,
+    "altitudine_m": 710
+  },
+  {
+    "nome": "Reggio Calabria",
+    "provincia": "Reggio Calabria",
+    "lat": 38.1113,
+    "lon": 15.6473,
+    "popolazione": 170000,
+    "altitudine_m": 31
+  },
+  {
+    "nome": "Gioia Tauro",
+    "provincia": "Reggio Calabria",
+    "lat": 38.425,
+    "lon": 15.899,
+    "popolazione": 18000,
+    "altitudine_m": 8
+  },
+  {
+    "nome": "Palmi",
+    "provincia": "Reggio Calabria",
+    "lat": 38.358,
+    "lon": 15.852,
+    "popolazione": 17500,
+    "altitudine_m": 220
+  },
+  {
+    "nome": "Siderno",
+    "provincia": "Reggio Calabria",
+    "lat": 38.269,
+    "lon": 16.296,
+    "popolazione": 17500,
+    "altitudine_m": 18
+  },
+  {
+    "nome": "Taurianova",
+    "provincia": "Reggio Calabria",
+    "lat": 38.354,
+    "lon": 16.012,
+    "popolazione": 15000,
+    "altitudine_m": 210
+  },
+  {
+    "nome": "Rosarno",
+    "provincia": "Reggio Calabria",
+    "lat": 38.487,
+    "lon": 15.98,
+    "popolazione": 14000,
+    "altitudine_m": 61
+  },
+  {
+    "nome": "Villa San Giovanni",
+    "provincia": "Reggio Calabria",
+    "lat": 38.22,
+    "lon": 15.635,
+    "popolazione": 13000,
+    "altitudine_m": 6
+  },
+  {
+    "nome": "Locri",
+    "provincia": "Reggio Calabria",
+    "lat": 38.238,
+    "lon": 16.26,
+    "popolazione": 12000,
+    "altitudine_m": 5
+  },
+  {
+    "nome": "Melito di Porto Salvo",
+    "provincia": "Reggio Calabria",
+    "lat": 37.92,
+    "lon": 15.78,
+    "popolazione": 11000,
+    "altitudine_m": 10
+  },
+  {
+    "nome": "Polistena",
+    "provincia": "Reggio Calabria",
+    "lat": 38.405,
+    "lon": 16.074,
+    "popolazione": 10300,
+    "altitudine_m": 254
+  },
+  {
+    "nome": "Cittanova",
+    "provincia": "Reggio Calabria",
+    "lat": 38.354,
+    "lon": 16.081,
+    "popolazione": 9600,
+    "altitudine_m": 407
+  },
+  {
+    "nome": "Bagnara Calabra",
+    "provincia": "Reggio Calabria",
+    "lat": 38.287,
+    "lon": 15.808,
+    "popolazione": 9500,
+    "altitudine_m": 50
+  },
+  {
+    "nome": "Bovalino",
+    "provincia": "Reggio Calabria",
+    "lat": 38.15,
+    "lon": 16.18,
+    "popolazione": 8800,
+    "altitudine_m": 10
+  },
+  {
+    "nome": "Caulonia",
+    "provincia": "Reggio Calabria",
+    "lat": 38.38,
+    "lon": 16.42,
+    "popolazione": 6700,
+    "altitudine_m": 285
+  },
+  {
+    "nome": "Cinquefrondi",
+    "provincia": "Reggio Calabria",
+    "lat": 38.42,
+    "lon": 16.09,
+    "popolazione": 6300,
+    "altitudine_m": 275
+  },
+  {
+    "nome": "Oppido Mamertina",
+    "provincia": "Reggio Calabria",
+    "lat": 38.292,
+    "lon": 15.985,
+    "popolazione": 4900,
+    "altitudine_m": 350
+  },
+  {
+    "nome": "Condofuri",
+    "provincia": "Reggio Calabria",
+    "lat": 37.95,
+    "lon": 15.86,
+    "popolazione": 4900,
+    "altitudine_m": 300
+  },
+  {
+    "nome": "Scilla",
+    "provincia": "Reggio Calabria",
+    "lat": 38.254,
+    "lon": 15.715,
+    "popolazione": 4700,
+    "altitudine_m": 73
+  },
+  {
+    "nome": "San Luca",
+    "provincia": "Reggio Calabria",
+    "lat": 38.145,
+    "lon": 16.063,
+    "popolazione": 3800,
+    "altitudine_m": 250
+  },
+  {
+    "nome": "Sant'Eufemia d'Aspromonte",
+    "provincia": "Reggio Calabria",
+    "lat": 38.26,
+    "lon": 15.85,
+    "popolazione": 3700,
+    "altitudine_m": 500
+  },
+  {
+    "nome": "Plati'",
+    "provincia": "Reggio Calabria",
+    "lat": 38.22,
+    "lon": 16.05,
+    "popolazione": 3500,
+    "altitudine_m": 310
+  },
+  {
+    "nome": "Brancaleone",
+    "provincia": "Reggio Calabria",
+    "lat": 37.965,
+    "lon": 16.1,
+    "popolazione": 3400,
+    "altitudine_m": 5
+  },
+  {
+    "nome": "Monasterace",
+    "provincia": "Reggio Calabria",
+    "lat": 38.45,
+    "lon": 16.55,
+    "popolazione": 3300,
+    "altitudine_m": 100
+  },
+  {
+    "nome": "Delianuova",
+    "provincia": "Reggio Calabria",
+    "lat": 38.24,
+    "lon": 15.92,
+    "popolazione": 3200,
+    "altitudine_m": 600
+  },
+  {
+    "nome": "Africo",
+    "provincia": "Reggio Calabria",
+    "lat": 38.04,
+    "lon": 16.14,
+    "popolazione": 3100,
+    "altitudine_m": 10
+  },
+  {
+    "nome": "Mammola",
+    "provincia": "Reggio Calabria",
+    "lat": 38.36,
+    "lon": 16.24,
+    "popolazione": 2800,
+    "altitudine_m": 250
+  },
+  {
+    "nome": "Gerace",
+    "provincia": "Reggio Calabria",
+    "lat": 38.27,
+    "lon": 16.22,
+    "popolazione": 2500,
+    "altitudine_m": 500
+  },
+  {
+    "nome": "Stilo",
+    "provincia": "Reggio Calabria",
+    "lat": 38.475,
+    "lon": 16.465,
+    "popolazione": 2500,
+    "altitudine_m": 400
+  },
+  {
+    "nome": "Molochio",
+    "provincia": "Reggio Calabria",
+    "lat": 38.31,
+    "lon": 16.03,
+    "popolazione": 2300,
+    "altitudine_m": 310
+  },
+  {
+    "nome": "Cardeto",
+    "provincia": "Reggio Calabria",
+    "lat": 38.06,
+    "lon": 15.77,
+    "popolazione": 1600,
+    "altitudine_m": 700
+  },
+  {
+    "nome": "Antonimina",
+    "provincia": "Reggio Calabria",
+    "lat": 38.27,
+    "lon": 16.15,
+    "popolazione": 1300,
+    "altitudine_m": 330
+  },
+  {
+    "nome": "Bivongi",
+    "provincia": "Reggio Calabria",
+    "lat": 38.48,
+    "lon": 16.45,
+    "popolazione": 1300,
+    "altitudine_m": 280
+  },
+  {
+    "nome": "Santo Stefano in Aspromonte",
+    "provincia": "Reggio Calabria",
+    "lat": 38.17,
+    "lon": 15.8,
+    "popolazione": 1200,
+    "altitudine_m": 710
+  },
+  {
+    "nome": "Roghudi",
+    "provincia": "Reggio Calabria",
+    "lat": 38.02,
+    "lon": 15.9,
+    "popolazione": 1100,
+    "altitudine_m": 500
+  },
+  {
+    "nome": "Ferruzzano",
+    "provincia": "Reggio Calabria",
+    "lat": 38.02,
+    "lon": 16.08,
+    "popolazione": 700,
+    "altitudine_m": 500
+  },
+  {
+    "nome": "Roccaforte del Greco",
+    "provincia": "Reggio Calabria",
+    "lat": 38.03,
+    "lon": 15.91,
+    "popolazione": 500,
+    "altitudine_m": 900
+  },
+  {
+    "nome": "Bova",
+    "provincia": "Reggio Calabria",
+    "lat": 37.99,
+    "lon": 15.93,
+    "popolazione": 400,
+    "altitudine_m": 820
+  },
+  {
+    "nome": "Staiti",
+    "provincia": "Reggio Calabria",
+    "lat": 37.98,
+    "lon": 16.04,
+    "popolazione": 200,
+    "altitudine_m": 550
+  },
+  {
+    "nome": "Vibo Valentia",
+    "provincia": "Vibo Valentia",
+    "lat": 38.6757,
+    "lon": 16.1005,
+    "popolazione": 32000,
+    "altitudine_m": 476
+  },
+  {
+    "nome": "Pizzo",
+    "provincia": "Vibo Valentia",
+    "lat": 38.735,
+    "lon": 16.16,
+    "popolazione": 9000,
+    "altitudine_m": 107
+  },
+  {
+    "nome": "Mileto",
+    "provincia": "Vibo Valentia",
+    "lat": 38.607,
+    "lon": 16.067,
+    "popolazione": 6600,
+    "altitudine_m": 355
+  },
+  {
+    "nome": "Serra San Bruno",
+    "provincia": "Vibo Valentia",
+    "lat": 38.572,
+    "lon": 16.329,
+    "popolazione": 6300,
+    "altitudine_m": 790
+  },
+  {
+    "nome": "Tropea",
+    "provincia": "Vibo Valentia",
+    "lat": 38.679,
+    "lon": 15.898,
+    "popolazione": 6200,
+    "altitudine_m": 61
+  },
+  {
+    "nome": "Nicotera",
+    "provincia": "Vibo Valentia",
+    "lat": 38.552,
+    "lon": 15.935,
+    "popolazione": 6100,
+    "altitudine_m": 210
+  },
+  {
+    "nome": "Filadelfia",
+    "provincia": "Vibo Valentia",
+    "lat": 38.78,
+    "lon": 16.29,
+    "popolazione": 5400,
+    "altitudine_m": 550
+  },
+  {
+    "nome": "Ricadi",
+    "provincia": "Vibo Valentia",
+    "lat": 38.62,
+    "lon": 15.85,
+    "popolazione": 4500,
+    "altitudine_m": 200
+  },
+  {
+    "nome": "Briatico",
+    "provincia": "Vibo Valentia",
+    "lat": 38.72,
+    "lon": 16.03,
+    "popolazione": 4000,
+    "altitudine_m": 50
+  },
+  {
+    "nome": "Soriano Calabro",
+    "provincia": "Vibo Valentia",
+    "lat": 38.55,
+    "lon": 16.23,
+    "popolazione": 2400,
+    "altitudine_m": 320
+  },
+  {
+    "nome": "Dinami",
+    "provincia": "Vibo Valentia",
+    "lat": 38.53,
+    "lon": 16.14,
+    "popolazione": 2200,
+    "altitudine_m": 420
+  },
+  {
+    "nome": "Fabrizia",
+    "provincia": "Vibo Valentia",
+    "lat": 38.49,
+    "lon": 16.3,
+    "popolazione": 2000,
+    "altitudine_m": 935
+  },
+  {
+    "nome": "Spilinga",
+    "provincia": "Vibo Valentia",
+    "lat": 38.63,
+    "lon": 15.92,
+    "popolazione": 1400,
+    "altitudine_m": 300
+  },
+  {
+    "nome": "Arena",
+    "provincia": "Vibo Valentia",
+    "lat": 38.55,
+    "lon": 16.21,
+    "popolazione": 1400,
+    "altitudine_m": 500
+  },
+  {
+    "nome": "Mongiana",
+    "provincia": "Vibo Valentia",
+    "lat": 38.51,
+    "lon": 16.32,
+    "popolazione": 700,
+    "altitudine_m": 921
+  },
+  {
+    "nome": "Crotone",
+    "provincia": "Crotone",
+    "lat": 39.0808,
+    "lon": 17.127,
+    "popolazione": 62000,
+    "altitudine_m": 8
+  },
+  {
+    "nome": "Isola di Capo Rizzuto",
+    "provincia": "Crotone",
+    "lat": 38.96,
+    "lon": 17.09,
+    "popolazione": 17000,
+    "altitudine_m": 90
+  },
+  {
+    "nome": "Ciro' Marina",
+    "provincia": "Crotone",
+    "lat": 39.37,
+    "lon": 17.13,
+    "popolazione": 14000,
+    "altitudine_m": 11
+  },
+  {
+    "nome": "Cutro",
+    "provincia": "Crotone",
+    "lat": 39.03,
+    "lon": 16.98,
+    "popolazione": 9700,
+    "altitudine_m": 218
+  },
+  {
+    "nome": "Petilia Policastro",
+    "provincia": "Crotone",
+    "lat": 39.11,
+    "lon": 16.79,
+    "popolazione": 8500,
+    "altitudine_m": 436
+  },
+  {
+    "nome": "Strongoli",
+    "provincia": "Crotone",
+    "lat": 39.27,
+    "lon": 17.05,
+    "popolazione": 6400,
+    "altitudine_m": 342
+  },
+  {
+    "nome": "Mesoraca",
+    "provincia": "Crotone",
+    "lat": 39.07,
+    "lon": 16.78,
+    "popolazione": 6300,
+    "altitudine_m": 425
+  },
+  {
+    "nome": "Rocca di Neto",
+    "provincia": "Crotone",
+    "lat": 39.2,
+    "lon": 17.0,
+    "popolazione": 5500,
+    "altitudine_m": 160
+  },
+  {
+    "nome": "Melissa",
+    "provincia": "Crotone",
+    "lat": 39.31,
+    "lon": 17.02,
+    "popolazione": 3200,
+    "altitudine_m": 256
+  },
+  {
+    "nome": "Ciro'",
+    "provincia": "Crotone",
+    "lat": 39.38,
+    "lon": 17.06,
+    "popolazione": 2800,
+    "altitudine_m": 340
+  },
+  {
+    "nome": "Casabona",
+    "provincia": "Crotone",
+    "lat": 39.25,
+    "lon": 16.95,
+    "popolazione": 2600,
+    "altitudine_m": 350
+  },
+  {
+    "nome": "Santa Severina",
+    "provincia": "Crotone",
+    "lat": 39.15,
+    "lon": 16.92,
+    "popolazione": 2200,
+    "altitudine_m": 326
+  },
+  {
+    "nome": "Verzino",
+    "provincia": "Crotone",
+    "lat": 39.24,
+    "lon": 16.86,
+    "popolazione": 1700,
+    "altitudine_m": 550
+  },
+  {
+    "nome": "Caccuri",
+    "provincia": "Crotone",
+    "lat": 39.22,
+    "lon": 16.78,
+    "popolazione": 1500,
+    "altitudine_m": 645
+  },
+  {
+    "nome": "Savelli",
+    "provincia": "Crotone",
+    "lat": 39.32,
+    "lon": 16.78,
+    "popolazione": 1000,
+    "altitudine_m": 1000
+  }
+]

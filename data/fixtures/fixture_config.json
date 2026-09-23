@@ -1,0 +1,184 @@
+{
+  "_avvertenza": "Parametri del generatore di fixture sintetiche. I dati prodotti NON sono osservazioni satellitari: sono generati da data/fixtures/genera_fixture_2025.py con il seed qui sotto. Vedi README.md nella stessa cartella.",
+  "seed": 20250601,
+  "season": {
+    "year": 2025,
+    "start": "2025-06-01",
+    "end": "2025-09-30"
+  },
+  "events": 420,
+  "_nota_events": "Numero di eventi di incendio generati sulla stagione. Ogni evento produce da 1 a qualche decina di rilevamenti su uno o piu' passaggi satellitari, quindi il totale delle righe e' di qualche migliaio.",
+
+  "month_weights": {
+    "6": 0.11,
+    "7": 0.33,
+    "8": 0.38,
+    "9": 0.18
+  },
+  "_nota_month_weights": "Distribuzione mensile degli inneschi. Luglio e agosto concentrano circa il settanta per cento della stagione: e' il profilo tipico del bacino mediterraneo, dove il picco segue il minimo di umidita' del combustibile fine.",
+
+  "heat_waves": [
+    {"peak": "2025-07-14", "sigma_days": 4.0, "amplitude": 1.6},
+    {"peak": "2025-08-06", "sigma_days": 5.0, "amplitude": 2.1},
+    {"peak": "2025-08-24", "sigma_days": 3.5, "amplitude": 1.3}
+  ],
+  "_nota_heat_waves": "Ondate di calore: bulbi gaussiani che si sommano al peso giornaliero. Servono a non ottenere una stagione piatta, perche' gli incendi arrivano a raffiche durante le avvezioni calde dal Nord Africa.",
+
+  "zones": [
+    {
+      "name": "Sila",
+      "shape": "ellipse",
+      "weight": 0.24,
+      "lat": 39.2600,
+      "lon": 16.5600,
+      "sigma_lat": 0.155,
+      "sigma_lon": 0.150
+    },
+    {
+      "name": "Aspromonte",
+      "shape": "ellipse",
+      "weight": 0.22,
+      "lat": 38.1800,
+      "lon": 15.9700,
+      "sigma_lat": 0.085,
+      "sigma_lon": 0.085
+    },
+    {
+      "name": "Pollino",
+      "shape": "ellipse",
+      "weight": 0.12,
+      "lat": 39.9000,
+      "lon": 16.1800,
+      "sigma_lat": 0.070,
+      "sigma_lon": 0.150
+    },
+    {
+      "name": "Serre e presila catanzarese",
+      "shape": "ellipse",
+      "weight": 0.10,
+      "lat": 38.5800,
+      "lon": 16.2700,
+      "sigma_lat": 0.110,
+      "sigma_lon": 0.080
+    },
+    {
+      "name": "Collina crotonese e marchesato",
+      "shape": "ellipse",
+      "weight": 0.09,
+      "lat": 39.1000,
+      "lon": 16.9600,
+      "sigma_lat": 0.150,
+      "sigma_lon": 0.090
+    },
+    {
+      "name": "Fascia costiera tirrenica",
+      "shape": "coastline",
+      "weight": 0.23,
+      "inland_offset_deg": [0.02, 0.14],
+      "lateral_jitter_deg": 0.030,
+      "waypoints": [
+        [39.8500, 15.8000],
+        [39.6000, 15.8600],
+        [39.5200, 15.9400],
+        [39.3600, 16.0400],
+        [39.1300, 16.0700],
+        [38.9600, 16.1700],
+        [38.7300, 16.1600],
+        [38.6800, 15.9000],
+        [38.5500, 15.9300],
+        [38.4200, 15.9000],
+        [38.2800, 15.8100],
+        [38.1200, 15.6600]
+      ]
+    }
+  ],
+  "_nota_zones": "Le ellissi sono centrate sui massicci dove la serie storica regionale concentra gli eventi. La fascia tirrenica e' una polilinea lungo la costa con uno scostamento verso l'interno, perche' li' gli incendi seguono il versante e non un centro. I punti generati restano sulla terraferma per costruzione: le sigma sono strette e lo scostamento e' sempre verso est.",
+
+  "size_classes": [
+    {"name": "piccolo",  "weight": 0.62, "pixels": 2,  "duration_hours": [1.0, 5.0],   "frp_scale": 0.8},
+    {"name": "medio",    "weight": 0.26, "pixels": 7,  "duration_hours": [4.0, 14.0],  "frp_scale": 1.0},
+    {"name": "grande",   "weight": 0.10, "pixels": 22, "duration_hours": [10.0, 40.0], "frp_scale": 1.8},
+    {"name": "maggiore", "weight": 0.02, "pixels": 70, "duration_hours": [24.0, 80.0], "frp_scale": 3.0}
+  ],
+  "_nota_size_classes": "Molti focolai piccoli e pochi eventi grandi: e' la forma che ha la distribuzione delle aree percorse in qualunque statistica AIB. Il seicento per cento di differenza fra le due code e' il motivo per cui la mediana e la media dell'area non si somigliano.",
+
+  "frp": {
+    "lognormal_mu": 1.55,
+    "lognormal_sigma": 1.12,
+    "min_mw": 0.6,
+    "max_mw": 1800.0
+  },
+  "_nota_frp": "La potenza radiativa segue una lognormale: coda lunga a destra, mediana intorno ai cinque megawatt, massimi sopra i mille nei fronti di testa degli eventi maggiori.",
+
+  "ignition": {
+    "peak_local_hour": 13.0,
+    "sigma_hours": 3.2,
+    "min_local_hour": 6.0,
+    "max_local_hour": 22.0
+  },
+  "_nota_ignition": "Ora di innesco locale, centrata sul primo pomeriggio: e' quando temperatura e vento sono al massimo e l'umidita' del combustibile fine al minimo.",
+
+  "detection": {
+    "day_probability": 0.90,
+    "night_probability": 0.62,
+    "night_pixel_factor": 0.78,
+    "decay_tau_hours": 16.0
+  },
+  "_nota_detection": "La probabilita' che un passaggio veda il fuoco e' piu' alta di giorno, e di notte il fronte attivo e' piu' corto: insieme danno il rapporto di circa settanta a trenta fra rilevamenti diurni e notturni. Il decadimento esponenziale tiene conto dello spegnimento progressivo.",
+
+  "local_utc_offset_hours": 2,
+
+  "products": [
+    {
+      "source": "VIIRS_SNPP_SP",
+      "instrument": "VIIRS",
+      "version": "2.0",
+      "confidence_style": "categorical",
+      "pixel_factor": 1.0,
+      "brightness_column": "bright_ti4",
+      "second_brightness_column": "bright_ti5",
+      "scan_range": [0.37, 0.62],
+      "track_range": [0.36, 0.47],
+      "satellites": [
+        {"code": "N", "day_local_hour": 13.4, "night_local_hour": 1.5}
+      ]
+    },
+    {
+      "source": "VIIRS_NOAA20_SP",
+      "instrument": "VIIRS",
+      "version": "2.0",
+      "confidence_style": "categorical",
+      "pixel_factor": 1.0,
+      "brightness_column": "bright_ti4",
+      "second_brightness_column": "bright_ti5",
+      "scan_range": [0.37, 0.62],
+      "track_range": [0.36, 0.47],
+      "satellites": [
+        {"code": "N20", "day_local_hour": 12.7, "night_local_hour": 0.7}
+      ]
+    },
+    {
+      "source": "MODIS_SP",
+      "instrument": "MODIS",
+      "version": "6.1",
+      "confidence_style": "numeric",
+      "pixel_factor": 0.35,
+      "brightness_column": "brightness",
+      "second_brightness_column": "bright_t31",
+      "scan_range": [1.0, 2.8],
+      "track_range": [1.0, 1.5],
+      "satellites": [
+        {"code": "Terra", "day_local_hour": 10.5, "night_local_hour": 22.5},
+        {"code": "Aqua", "day_local_hour": 13.5, "night_local_hour": 1.5}
+      ]
+    }
+  ],
+  "_nota_products": "Orari di passaggio in ora locale, approssimati a quelli reali delle orbite eliosincrone. VIIRS ha pixel da 375 m e confidenza categorica, MODIS pixel da 1 km e confidenza numerica: la differenza e' apposta, serve a esercitare entrambi i rami del parser. Il pixel_factor riduce il numero di pixel MODIS a circa un terzo di quelli VIIRS a parita' di fronte, perche' un pixel da 1 km copre circa sette pixel da 375 m: senza questo correttivo l'archivio MODIS risulterebbe piu' ricco di quello VIIRS, che e' il contrario di quello che si osserva.",
+
+  "head_boost": [1.8, 5.5],
+  "_nota_head_boost": "Il pixel piu' caldo di ogni passaggio, sui fronti di almeno quattro pixel, riceve un moltiplicatore di potenza radiativa. E' la testa dell'incendio: irraggia molto piu' dei fianchi, ed e' quello che fa divergere la FRP massima dalla media e che sposta il centroide pesato.",
+
+  "jitter_minutes": 6,
+  "pixel_spread_km": 0.9,
+  "_nota_pixel_spread": "Dispersione dei pixel attorno al centro dell'evento. Circa un chilometro: sotto la soglia di clustering (CLUSTER_EPS_KM = 1.5 km), quindi i pixel dello stesso evento finiscono nello stesso focolaio."
+}

@@ -1,0 +1,93 @@
+[
+  {
+    "nome": "Parco Nazionale della Sila",
+    "tipo": "parco_nazionale",
+    "lat": 39.32,
+    "lon": 16.56,
+    "raggio_km": 15.3
+  },
+  {
+    "nome": "Parco Nazionale dell'Aspromonte",
+    "tipo": "parco_nazionale",
+    "lat": 38.18,
+    "lon": 15.95,
+    "raggio_km": 14.3
+  },
+  {
+    "nome": "Parco Nazionale del Pollino (versante calabrese)",
+    "tipo": "parco_nazionale",
+    "lat": 39.9,
+    "lon": 16.15,
+    "raggio_km": 16.7
+  },
+  {
+    "nome": "Parco Naturale Regionale delle Serre",
+    "tipo": "parco_regionale",
+    "lat": 38.55,
+    "lon": 16.3,
+    "raggio_km": 7.5
+  },
+  {
+    "nome": "Riserva Naturale Valle del Fiume Lao",
+    "tipo": "riserva_statale",
+    "lat": 39.84,
+    "lon": 15.88,
+    "raggio_km": 4.1
+  },
+  {
+    "nome": "Riserva Naturale Valle del Fiume Argentino",
+    "tipo": "riserva_statale",
+    "lat": 39.76,
+    "lon": 15.95,
+    "raggio_km": 3.6
+  },
+  {
+    "nome": "Riserva Naturale Gole del Raganello",
+    "tipo": "riserva_statale",
+    "lat": 39.83,
+    "lon": 16.28,
+    "raggio_km": 2.3
+  },
+  {
+    "nome": "Riserva Naturale Marchesale",
+    "tipo": "riserva_statale",
+    "lat": 38.52,
+    "lon": 16.25,
+    "raggio_km": 2.0
+  },
+  {
+    "nome": "Riserva Naturale Cropani Micone",
+    "tipo": "riserva_statale",
+    "lat": 38.58,
+    "lon": 16.3,
+    "raggio_km": 0.8
+  },
+  {
+    "nome": "Riserva Naturale Golia Corvo",
+    "tipo": "riserva_statale",
+    "lat": 38.63,
+    "lon": 16.42,
+    "raggio_km": 1.6
+  },
+  {
+    "nome": "Riserva Naturale Regionale Lago di Tarsia",
+    "tipo": "riserva_regionale",
+    "lat": 39.62,
+    "lon": 16.28,
+    "raggio_km": 1.2
+  },
+  {
+    "nome": "Riserva Naturale Regionale Foce del Crati",
+    "tipo": "riserva_regionale",
+    "lat": 39.71,
+    "lon": 16.52,
+    "raggio_km": 1.0
+  },
+  {
+    "nome": "Oasi WWF Lago Angitola",
+    "tipo": "oasi",
+    "lat": 38.74,
+    "lon": 16.21,
+    "raggio_km": 1.7
+  }
+]

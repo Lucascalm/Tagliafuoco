@@ -1,0 +1,298 @@
+[
+  {
+    "source_id": "WS_TIR_SCALEA",
+    "name": "Tirreno al largo di Scalea",
+    "lat": 39.8,
+    "lon": 15.73,
+    "kind": "sea",
+    "usable_by": [
+      "canadair",
+      "elicottero_pesante",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "refill_minutes": 1.5,
+    "capacity_liters": null,
+    "seasonal_reliability": 1.0,
+    "note": "Riviera dei Cedri, copre il versante tirrenico del Pollino."
+  },
+  {
+    "source_id": "WS_TIR_SEUFEMIA",
+    "name": "Golfo di Sant'Eufemia",
+    "lat": 38.92,
+    "lon": 16.15,
+    "kind": "sea",
+    "usable_by": [
+      "canadair",
+      "elicottero_pesante",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "refill_minutes": 1.5,
+    "capacity_liters": null,
+    "seasonal_reliability": 1.0,
+    "note": "Otto km da Lamezia, un minuto e mezzo di volo per un CL-415: ciclo d'acqua completo sotto i cinque minuti."
+  },
+  {
+    "source_id": "WS_TIR_SCILLA",
+    "name": "Stretto di Messina al largo di Scilla",
+    "lat": 38.26,
+    "lon": 15.68,
+    "kind": "sea",
+    "usable_by": [
+      "canadair",
+      "elicottero_pesante",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "refill_minutes": 2.0,
+    "capacity_liters": null,
+    "seasonal_reliability": 1.0,
+    "note": "Correnti e traffico navale: pescaggio meno comodo, 2 minuti."
+  },
+  {
+    "source_id": "WS_ION_SIBARI",
+    "name": "Golfo di Corigliano, foce del Crati",
+    "lat": 39.72,
+    "lon": 16.53,
+    "kind": "sea",
+    "usable_by": [
+      "canadair",
+      "elicottero_pesante",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "refill_minutes": 1.5,
+    "capacity_liters": null,
+    "seasonal_reliability": 1.0,
+    "note": "Serve la piana di Sibari e la Sila Greca."
+  },
+  {
+    "source_id": "WS_ION_CROTONE",
+    "name": "Ionio al largo di Crotone",
+    "lat": 39.07,
+    "lon": 17.16,
+    "kind": "sea",
+    "usable_by": [
+      "canadair",
+      "elicottero_pesante",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "refill_minutes": 1.5,
+    "capacity_liters": null,
+    "seasonal_reliability": 1.0,
+    "note": "Marchesato, dove d'acqua dolce non ce n'e'."
+  },
+  {
+    "source_id": "WS_ION_SQUILLACE",
+    "name": "Golfo di Squillace",
+    "lat": 38.74,
+    "lon": 16.63,
+    "kind": "sea",
+    "usable_by": [
+      "canadair",
+      "elicottero_pesante",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "refill_minutes": 1.5,
+    "capacity_liters": null,
+    "seasonal_reliability": 1.0,
+    "note": "Versante ionico dell'istmo e Sila Piccola meridionale."
+  },
+  {
+    "source_id": "WS_ION_LOCRI",
+    "name": "Ionio al largo di Locri",
+    "lat": 38.23,
+    "lon": 16.29,
+    "kind": "sea",
+    "usable_by": [
+      "canadair",
+      "elicottero_pesante",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "refill_minutes": 1.5,
+    "capacity_liters": null,
+    "seasonal_reliability": 1.0,
+    "note": "Locride e versante ionico dell'Aspromonte."
+  },
+  {
+    "source_id": "WS_LAG_CECITA",
+    "name": "Lago di Cecita",
+    "lat": 39.4,
+    "lon": 16.52,
+    "kind": "lake",
+    "usable_by": [
+      "canadair",
+      "elicottero_pesante",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "refill_minutes": 2.0,
+    "capacity_liters": null,
+    "seasonal_reliability": 0.75,
+    "note": "Il piu' grande dei silani, abbastanza lungo per un CL-415."
+  },
+  {
+    "source_id": "WS_LAG_ARVO",
+    "name": "Lago Arvo",
+    "lat": 39.22,
+    "lon": 16.48,
+    "kind": "lake",
+    "usable_by": [
+      "canadair",
+      "elicottero_pesante",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "refill_minutes": 2.0,
+    "capacity_liters": null,
+    "seasonal_reliability": 0.8,
+    "note": "A Lorica, accanto all'elisuperficie: ciclo di pescaggio cortissimo."
+  },
+  {
+    "source_id": "WS_LAG_AMPOLLINO",
+    "name": "Lago Ampollino",
+    "lat": 39.14,
+    "lon": 16.64,
+    "kind": "lake",
+    "usable_by": [
+      "canadair",
+      "elicottero_pesante",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "refill_minutes": 2.0,
+    "capacity_liters": null,
+    "seasonal_reliability": 0.75,
+    "note": "Al confine fra le tre province silane, pinete tutto intorno."
+  },
+  {
+    "source_id": "WS_LAG_PASSANTE",
+    "name": "Lago Passante",
+    "lat": 39.07,
+    "lon": 16.54,
+    "kind": "lake",
+    "usable_by": [
+      "elicottero_pesante",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "refill_minutes": 2.5,
+    "capacity_liters": 5000000,
+    "seasonal_reliability": 0.7,
+    "note": "Stretto e incassato: benne si', ammaraggio no."
+  },
+  {
+    "source_id": "WS_LAG_ARIAMACINA",
+    "name": "Lago Ariamacina",
+    "lat": 39.3,
+    "lon": 16.55,
+    "kind": "lake",
+    "usable_by": [
+      "elicottero_pesante",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "refill_minutes": 2.5,
+    "capacity_liters": 3000000,
+    "seasonal_reliability": 0.65,
+    "note": "Piccolo e molto soggetto a svaso, il meno affidabile dei silani."
+  },
+  {
+    "source_id": "WS_LAG_ANGITOLA",
+    "name": "Lago Angitola",
+    "lat": 38.74,
+    "lon": 16.21,
+    "kind": "lake",
+    "usable_by": [
+      "elicottero_pesante",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "refill_minutes": 2.5,
+    "capacity_liters": 4000000,
+    "seasonal_reliability": 0.6,
+    "note": "Oasi protetta: prelievo tollerato ma non illimitato."
+  },
+  {
+    "source_id": "WS_INV_MENTA",
+    "name": "Invaso del Menta",
+    "lat": 38.15,
+    "lon": 15.92,
+    "kind": "lake",
+    "usable_by": [
+      "elicottero_pesante",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "refill_minutes": 2.5,
+    "capacity_liters": 8000000,
+    "seasonal_reliability": 0.85,
+    "note": "Quota 1400 m in Aspromonte: uso potabile, quindi ben alimentato."
+  },
+  {
+    "source_id": "WS_IDR_CASTROVILLARI",
+    "name": "Idrante VVF di Castrovillari",
+    "lat": 39.813,
+    "lon": 16.205,
+    "kind": "hydrant",
+    "usable_by": [
+      "autobotte",
+      "modulo_aib"
+    ],
+    "refill_minutes": 15.0,
+    "capacity_liters": 250000,
+    "seasonal_reliability": 0.95,
+    "note": "Rete acquedottistica: cala un po' nei picchi di consumo estivi."
+  },
+  {
+    "source_id": "WS_IDR_LAMEZIA",
+    "name": "Idrante VVF di Lamezia Terme",
+    "lat": 38.94,
+    "lon": 16.27,
+    "kind": "hydrant",
+    "usable_by": [
+      "autobotte",
+      "modulo_aib"
+    ],
+    "refill_minutes": 15.0,
+    "capacity_liters": 250000,
+    "seasonal_reliability": 0.95,
+    "note": "Punto di rifornimento baricentrico per i mezzi terrestri."
+  },
+  {
+    "source_id": "WS_IDR_CROTONE",
+    "name": "Idrante VVF di Crotone",
+    "lat": 39.079,
+    "lon": 17.118,
+    "kind": "hydrant",
+    "usable_by": [
+      "autobotte",
+      "modulo_aib"
+    ],
+    "refill_minutes": 15.0,
+    "capacity_liters": 200000,
+    "seasonal_reliability": 0.9,
+    "note": "Senza questo punto il Marchesato resterebbe a oltre un'ora di strada dal rifornimento piu' vicino."
+  },
+  {
+    "source_id": "WS_VAS_GAMBARIE",
+    "name": "Vasca antincendio di Gambarie",
+    "lat": 38.165,
+    "lon": 15.838,
+    "kind": "tank",
+    "usable_by": [
+      "elicottero_medio",
+      "elicottero_leggero",
+      "autobotte",
+      "modulo_aib"
+    ],
+    "refill_minutes": 10.0,
+    "capacity_liters": 90000,
+    "seasonal_reliability": 0.8,
+    "note": "Novanta metri cubi: una sessantina di benne da elicottero medio, poi va rialimentata dall'acquedotto."
+  }
+]

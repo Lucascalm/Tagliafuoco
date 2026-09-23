@@ -1,0 +1,143 @@
+/* La pagina delle note: un documento, non una console.
+ *
+ * Perche' questo foglio esiste separato dagli altri due: index.html e' una
+ * schermata sola che non scorre, con una griglia fissa e una colonna di
+ * pannelli; note.html e' testo da leggere dall'inizio alla fine. Applicare
+ * qui le regole della console significherebbe scrivere sovrascritture per
+ * disfarle una per una.
+ *
+ * I token del colore e della tipografia non si ridefiniscono: arrivano da
+ * console.css, che questa pagina carica per primo. Il tema notturno quindi
+ * funziona qui senza una riga in piu'.
+ */
+
+.foglio {
+  max-width: 70ch;
+  margin: 0 auto;
+  padding: 28px 20px 64px;
+}
+
+/* La testata ripete nome e avvertenza con lo stesso peso, come nella console:
+ * chi arriva qui da un collegamento diretto deve leggere che cos'e' il
+ * progetto prima di leggere i limiti dei dati. */
+.foglio-testata {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--linea-forte);
+}
+
+/* La scala di questa pagina sale davvero, a passi di circa un quarto:
+ * 14 il corpo, 16 i sottotitoli, 20 le sezioni, 25 il titolo. La console puo'
+ * permettersi una scala compressa perche' li' la gerarchia la fa il riquadro,
+ * e ogni pannello ha il suo bordo e la sua posizione. Qui non c'e' nessun
+ * riquadro: c'e' una colonna di testo lunga, e se i titoli non si distinguono
+ * per misura il lettore perde il filo di dove si trova. */
+.foglio-testata h1,
+.foglio-testata .avvertenza {
+  font-size: 25px;
+  font-weight: 600;
+  font-stretch: 92%;
+  letter-spacing: 0.005em;
+  line-height: 1.2;
+}
+
+.foglio-testata .avvertenza {
+  padding-left: 14px;
+  border-left: 1px solid var(--linea-forte);
+}
+
+.foglio-testata .ritorno {
+  margin-left: auto;
+  font-size: 13px;
+}
+
+/* I titoli di sezione stavano alla stessa misura del testo, e i sottotitoli
+ * perfino sotto: a quel punto il peso da solo non basta a farli leggere come
+ * titoli. Il filetto sopra l'h2 resta, ma adesso accompagna un salto di
+ * misura invece di sostituirlo. */
+.foglio h2 {
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: 88%;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  margin: 30px 0 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--linea);
+}
+
+.foglio h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 18px 0 5px;
+}
+
+.foglio p,
+.foglio li {
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 68ch;
+}
+
+.foglio p + p {
+  margin-top: 10px;
+}
+
+/* Elenchi con il trattino invece del pallino: e' il segno che una carta usa
+ * per le voci di legenda, e resta coerente con il resto della pagina. */
+.foglio ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.foglio ul li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 6px;
+}
+
+.foglio ul li::before {
+  content: "\2013";
+  position: absolute;
+  left: 0;
+  color: var(--ardesia);
+}
+
+.foglio dl {
+  margin: 8px 0 0;
+}
+
+.foglio dt {
+  font-family: var(--cifre);
+  font-size: 12.5px;
+  margin-top: 10px;
+}
+
+.foglio dd {
+  margin: 2px 0 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--inchiostro-tenue);
+  max-width: 64ch;
+}
+
+.foglio code {
+  font-family: var(--cifre);
+  font-size: 12.5px;
+}
+
+.foglio a {
+  color: var(--inchiostro);
+}
+
+.foglio-piede {
+  margin-top: 32px;
+  padding-top: 12px;
+  border-top: 1px solid var(--linea-forte);
+  font-size: 12.5px;
+  color: var(--inchiostro-tenue);
+}

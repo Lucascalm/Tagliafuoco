@@ -1,0 +1,210 @@
+[
+  {
+    "base_id": "BASE_LMZ",
+    "name": "Aeroporto di Lamezia Terme",
+    "lat": 38.9054,
+    "lon": 16.2423,
+    "provincia": "Catanzaro",
+    "supports": [
+      "canadair",
+      "elicottero_pesante",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "has_night_capability": true,
+    "turnaround_minutes": 15.0,
+    "note": "Scalo principale della regione, baricentrico fra Tirreno e Ionio."
+  },
+  {
+    "base_id": "BASE_REG",
+    "name": "Aeroporto di Reggio Calabria Tito Minniti",
+    "lat": 38.0712,
+    "lon": 15.6516,
+    "provincia": "Reggio Calabria",
+    "supports": [
+      "canadair",
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "has_night_capability": true,
+    "turnaround_minutes": 14.0,
+    "note": "Copre Aspromonte e Stretto, pista corta stretta fra mare e collina."
+  },
+  {
+    "base_id": "BASE_KRO",
+    "name": "Aeroporto di Crotone Pitagora",
+    "lat": 38.9972,
+    "lon": 17.0802,
+    "provincia": "Crotone",
+    "supports": [
+      "canadair",
+      "elicottero_pesante",
+      "elicottero_medio"
+    ],
+    "has_night_capability": true,
+    "turnaround_minutes": 14.0,
+    "note": "Unico scalo sul versante ionico, utile per la Sila orientale."
+  },
+  {
+    "base_id": "BASE_ELI_MOR",
+    "name": "Elisuperficie AIB di Mormanno",
+    "lat": 39.888,
+    "lon": 15.993,
+    "provincia": "Cosenza",
+    "supports": [
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "has_night_capability": false,
+    "turnaround_minutes": 10.0,
+    "note": "Presidio del versante calabrese del Pollino."
+  },
+  {
+    "base_id": "BASE_ELI_LOR",
+    "name": "Elisuperficie AIB di Lorica",
+    "lat": 39.2606,
+    "lon": 16.5397,
+    "provincia": "Cosenza",
+    "supports": [
+      "elicottero_medio",
+      "elicottero_leggero",
+      "modulo_aib"
+    ],
+    "has_night_capability": false,
+    "turnaround_minutes": 10.0,
+    "note": "Cuore della Sila Grande, a pochi minuti dai laghi Arvo e Cecita."
+  },
+  {
+    "base_id": "BASE_ELI_CEN",
+    "name": "Elisuperficie AIB di Cenadi",
+    "lat": 38.7817,
+    "lon": 16.43,
+    "provincia": "Catanzaro",
+    "supports": [
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "has_night_capability": false,
+    "turnaround_minutes": 10.0,
+    "note": "Presidio dell'istmo e del versante nord delle Serre."
+  },
+  {
+    "base_id": "BASE_ELI_GAM",
+    "name": "Elisuperficie AIB di Gambarie d'Aspromonte",
+    "lat": 38.1675,
+    "lon": 15.8375,
+    "provincia": "Reggio Calabria",
+    "supports": [
+      "elicottero_medio",
+      "elicottero_leggero",
+      "modulo_aib"
+    ],
+    "has_night_capability": false,
+    "turnaround_minutes": 11.0,
+    "note": "Quota 1300 m: densita' dell'aria ridotta, carico utile ridotto."
+  },
+  {
+    "base_id": "BASE_ELI_CIR",
+    "name": "Elisuperficie AIB di Ciro' Marina",
+    "lat": 39.3705,
+    "lon": 17.129,
+    "provincia": "Crotone",
+    "supports": [
+      "elicottero_medio",
+      "elicottero_leggero"
+    ],
+    "has_night_capability": false,
+    "turnaround_minutes": 10.0,
+    "note": "Alto ionio crotonese, macchia mediterranea e interfaccia costiera."
+  },
+  {
+    "base_id": "BASE_VVF_CS",
+    "name": "Comando VVF di Cosenza",
+    "lat": 39.3125,
+    "lon": 16.2472,
+    "provincia": "Cosenza",
+    "supports": [
+      "autobotte",
+      "modulo_aib",
+      "squadra_terra"
+    ],
+    "has_night_capability": true,
+    "turnaround_minutes": 8.0,
+    "note": "Valle del Crati, la provincia piu' estesa e piu' boscata."
+  },
+  {
+    "base_id": "BASE_VVF_CZ",
+    "name": "Comando VVF di Catanzaro",
+    "lat": 38.9052,
+    "lon": 16.5877,
+    "provincia": "Catanzaro",
+    "supports": [
+      "autobotte",
+      "modulo_aib",
+      "squadra_terra"
+    ],
+    "has_night_capability": true,
+    "turnaround_minutes": 8.0,
+    "note": "Copre Sila Piccola e golfo di Squillace."
+  },
+  {
+    "base_id": "BASE_VVF_RC",
+    "name": "Comando VVF di Reggio Calabria",
+    "lat": 38.113,
+    "lon": 15.654,
+    "provincia": "Reggio Calabria",
+    "supports": [
+      "autobotte",
+      "modulo_aib",
+      "squadra_terra"
+    ],
+    "has_night_capability": true,
+    "turnaround_minutes": 8.0,
+    "note": "Interfaccia urbano-foresta fra le piu' critiche d'Italia."
+  },
+  {
+    "base_id": "BASE_VVF_VV",
+    "name": "Comando VVF di Vibo Valentia",
+    "lat": 38.676,
+    "lon": 16.102,
+    "provincia": "Vibo Valentia",
+    "supports": [
+      "autobotte",
+      "modulo_aib",
+      "squadra_terra"
+    ],
+    "has_night_capability": true,
+    "turnaround_minutes": 8.0,
+    "note": "Serre e costa degli dei, forte pressione turistica estiva."
+  },
+  {
+    "base_id": "BASE_VVF_KR",
+    "name": "Comando VVF di Crotone",
+    "lat": 39.079,
+    "lon": 17.118,
+    "provincia": "Crotone",
+    "supports": [
+      "autobotte",
+      "modulo_aib",
+      "squadra_terra"
+    ],
+    "has_night_capability": true,
+    "turnaround_minutes": 8.0,
+    "note": "Marchesato: poca acqua, molto vento, molto incolto."
+  },
+  {
+    "base_id": "BASE_VVF_CAS",
+    "name": "Distaccamento VVF di Castrovillari",
+    "lat": 39.813,
+    "lon": 16.201,
+    "provincia": "Cosenza",
+    "supports": [
+      "autobotte",
+      "modulo_aib",
+      "squadra_terra"
+    ],
+    "has_night_capability": true,
+    "turnaround_minutes": 9.0,
+    "note": "Unico presidio terrestre rapido per il versante sud del Pollino."
+  }
+]

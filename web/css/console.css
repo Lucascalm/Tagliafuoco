@@ -1,0 +1,924 @@
+/* Console di Tagliafuoco: fondo, tipografia, impaginazione, registro, tempo.
+ *
+ * Perche' questo foglio esiste separato da mappa.css: qui sta la pagina, li'
+ * stanno i segni sulla carta. Le due cose cambiano per ragioni diverse e a
+ * ritmi diversi, e tenerle insieme significherebbe rileggere quattrocento
+ * righe di sovrascritture di Leaflet ogni volta che si sposta un pannello.
+ *
+ * La palette e la tipografia non si decidono qui: sono fissate in
+ * web/DESIGN.md e questo foglio le applica. I nomi dei token sono quelli del
+ * documento, cosi' chi legge il codice e chi legge il piano parlano la stessa
+ * lingua.
+ */
+
+/* ---------------------------------------------------------------- token */
+
+:root {
+  /* Carta topografica: avorio caldo, mai bianco pieno. */
+  --carta: #efe9dc;
+  --carta-alta: #f5f1e7; /* pannelli, un passo sopra il fondo */
+  --carta-bassa: #e2dac8; /* fondo neutro sotto la mappa senza tile */
+  --inchiostro: #17150f; /* nero caldo da stampa */
+  --inchiostro-tenue: #4a463c;
+  --bosco: #2e4636;
+  --brace: #a8331d;
+  --ocra: #b3801f; /* solo come segno, non come testo */
+  --ocra-testo: #7a5510; /* la stessa ocra portata a contrasto da testo */
+  --ardesia: #55606b;
+  --linea: rgba(85, 96, 107, 0.25);
+  --linea-forte: rgba(85, 96, 107, 0.45);
+  --fuoco-focus: #17150f;
+
+  --testo: "Archivo", "Archivo Narrow", "Helvetica Neue", Arial, sans-serif;
+  --cifre: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --registro-larghezza: 380px;
+  --testata-altezza: 58px;
+  --tempo-altezza: 96px;
+}
+
+/* Il tema notturno non e' un vezzo: il turno di notte fa parte del dominio,
+ * perche' i mezzi aerei si fermano e quelli a terra no. Si attiva con la
+ * preferenza di sistema e con l'interruttore, perche' in sala la luce non
+ * segue le impostazioni del sistema operativo. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="chiaro"]) {
+    --carta: #14171a;
+    --carta-alta: #1c2127;
+    --carta-bassa: #0f1215;
+    --inchiostro: #e3ded2;
+    --inchiostro-tenue: #a8a395;
+    --bosco: #7fa189;
+    --brace: #e07557;
+    --ocra: #dcae46;
+    --ocra-testo: #dcae46;
+    --ardesia: #93a0ad;
+    --linea: rgba(147, 160, 173, 0.28);
+    --linea-forte: rgba(147, 160, 173, 0.5);
+    --fuoco-focus: #e3ded2;
+  }
+}
+
+:root[data-tema="scuro"] {
+  --carta: #14171a;
+  --carta-alta: #1c2127;
+  --carta-bassa: #0f1215;
+  --inchiostro: #e3ded2;
+  --inchiostro-tenue: #a8a395;
+  --bosco: #7fa189;
+  --brace: #e07557;
+  --ocra: #dcae46;
+  --ocra-testo: #dcae46;
+  --ardesia: #93a0ad;
+  --linea: rgba(147, 160, 173, 0.28);
+  --linea-forte: rgba(147, 160, 173, 0.5);
+  --fuoco-focus: #e3ded2;
+}
+
+/* ---------------------------------------------------------------- base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--carta);
+  color: var(--inchiostro);
+  font-family: var(--testo);
+  font-size: 15px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 2px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--fuoco-focus);
+  outline-offset: 2px;
+}
+
+/* Un solo salto di lettura: dalla mappa al suo equivalente testuale. */
+.salta {
+  position: absolute;
+  left: 8px;
+  top: -60px;
+  z-index: 1200;
+  background: var(--carta-alta);
+  border: 1px solid var(--linea-forte);
+  padding: 8px 12px;
+  transition: top 120ms ease;
+}
+
+.salta:focus {
+  top: 8px;
+}
+
+.cifre {
+  font-family: var(--cifre);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+.solo-lettori {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------- impianto */
+
+.pagina {
+  display: grid;
+  grid-template-rows: var(--testata-altezza) minmax(0, 1fr) auto;
+  height: 100dvh;
+  min-height: 100dvh;
+}
+
+/* ---------------------------------------------------------------- testata */
+
+.testata {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--linea-forte);
+  background: var(--carta);
+}
+
+/* L'avvertenza ha lo stesso peso tipografico del nome. Non e' una nota
+ * legale in fondo alla pagina: e' una informazione sul prodotto, e chi legge
+ * il nome legge anche quella. */
+.testata h1,
+.testata .avvertenza {
+  font-size: 19px;
+  font-weight: 600;
+  font-stretch: 92%;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.testata .avvertenza {
+  padding-left: 16px;
+  border-left: 1px solid var(--linea-forte);
+  color: var(--inchiostro);
+}
+
+.testata .riempi {
+  flex: 1 1 auto;
+}
+
+.comando {
+  border: 1px solid var(--linea-forte);
+  border-radius: 2px;
+  background: var(--carta-alta);
+  color: var(--inchiostro);
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 13px;
+  font-stretch: 92%;
+}
+
+.comando:hover {
+  border-color: var(--ardesia);
+}
+
+.comando[aria-pressed="true"] {
+  background: var(--inchiostro);
+  color: var(--carta);
+  border-color: var(--inchiostro);
+}
+
+.comando:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* ---------------------------------------------------------------- corpo */
+
+.console {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--registro-larghezza);
+  min-height: 0;
+}
+
+.zona-mappa {
+  position: relative;
+  min-height: 0;
+  border-right: 1px solid var(--linea-forte);
+  background: var(--carta-bassa);
+}
+
+/* ---------------------------------------------------------------- registro */
+
+.registro {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+  background: var(--carta);
+}
+
+.sezione {
+  border-bottom: 1px solid var(--linea);
+  padding: 12px 16px 14px;
+}
+
+.sezione:last-child {
+  border-bottom: 0;
+}
+
+.sezione > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  font-stretch: 88%;
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+}
+
+/* La numerazione qui e' legittima: ordine, vincoli, piano, verdetto sono
+ * davvero una sequenza, e succedono in quest'ordine. Sui vincoli no: quelli
+ * sono un insieme, e infatti portano il tipo e non un numero. */
+.sezione > h2 .passo {
+  font-family: var(--cifre);
+  font-size: 11px;
+  color: var(--ardesia);
+}
+
+.sezione > h2 .conta {
+  margin-left: auto;
+  font-family: var(--cifre);
+  font-size: 11px;
+  color: var(--ardesia);
+  font-weight: 400;
+}
+
+.nota {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--inchiostro-tenue);
+  max-width: 68ch;
+}
+
+.nota + .nota {
+  margin-top: 6px;
+}
+
+/* --- ordine --- */
+
+.ordine-testo {
+  width: 100%;
+  min-height: 66px;
+  resize: vertical;
+  padding: 8px 9px;
+  background: var(--carta-alta);
+  border: 1px solid var(--linea-forte);
+  border-radius: 2px;
+  line-height: 1.4;
+  font-size: 14px;
+}
+
+.esempi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+}
+
+.esempio {
+  border: 1px solid var(--linea);
+  border-radius: 2px;
+  background: transparent;
+  padding: 3px 8px;
+  font-size: 12px;
+  font-stretch: 88%;
+  cursor: pointer;
+  color: var(--inchiostro-tenue);
+}
+
+.esempio[aria-current="true"] {
+  border-color: var(--inchiostro);
+  color: var(--inchiostro);
+}
+
+.riga-azioni {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.stato-servizio {
+  font-size: 12px;
+  color: var(--inchiostro-tenue);
+  line-height: 1.3;
+}
+
+.stato-servizio[data-esito="spento"]::before,
+.stato-servizio[data-esito="acceso"]::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 6px;
+  vertical-align: 1px;
+  border: 1px solid var(--ardesia);
+}
+
+/* Il quadratino pieno o vuoto porta l'informazione anche senza colore. */
+.stato-servizio[data-esito="acceso"]::before {
+  background: var(--bosco);
+  border-color: var(--bosco);
+}
+
+/* --- ordine, testo con i frammenti evidenziati --- */
+
+.ordine-reso {
+  margin-top: 10px;
+  padding: 8px 9px;
+  border: 1px solid var(--linea);
+  background: var(--carta-alta);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.ordine-reso mark {
+  background: transparent;
+  color: inherit;
+  border-bottom: 2px solid var(--linea-forte);
+  padding-bottom: 1px;
+}
+
+.ordine-reso mark.acceso {
+  background: rgba(179, 128, 31, 0.22);
+  border-bottom-color: var(--ocra);
+}
+
+/* --- vincoli --- */
+
+.vincoli {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--linea);
+  border: 1px solid var(--linea);
+}
+
+.vincolo {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--carta-alta);
+  border: 0;
+  padding: 7px 9px;
+  cursor: pointer;
+}
+
+.vincolo:hover,
+.vincolo[aria-pressed="true"] {
+  background: var(--carta);
+}
+
+.vincolo .tipo {
+  font-family: var(--cifre);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+/* Il margine e' basso perche' nel testo c'e' gia' uno spazio vero: serve ai
+ * lettori di schermo, che altrimenti leggerebbero le due etichette attaccate.
+ * Insieme fanno la distanza che questa riga aveva prima. */
+.vincolo .durezza {
+  font-size: 11px;
+  color: var(--ardesia);
+  margin-left: 2px;
+}
+
+/* Le virgolette stanno solo qui, e portano una informazione precisa: questo
+ * e' il frammento letterale dell'ordine da cui il vincolo e' stato tratto,
+ * non una parafrasi. Il riassunto qui sotto non le porta, perche' non e' una
+ * citazione: e' il vincolo tipizzato riletto in italiano. */
+.vincolo .frammento {
+  display: block;
+  font-size: 12.5px;
+  color: var(--inchiostro-tenue);
+  margin-top: 2px;
+}
+
+.vincolo .frammento::before {
+  content: "\201C";
+}
+
+.vincolo .frammento::after {
+  content: "\201D";
+}
+
+.vincolo .riassunto {
+  display: block;
+  font-size: 12.5px;
+  color: var(--ardesia);
+  margin-top: 2px;
+}
+
+.vincolo.non-supportato .tipo {
+  color: var(--ocra-testo);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+/* --- piano --- */
+
+.assegnazioni {
+  border: 1px solid var(--linea);
+  border-bottom: 0;
+}
+
+.assegnazione {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 10px;
+  width: 100%;
+  text-align: left;
+  background: var(--carta-alta);
+  border: 0;
+  border-bottom: 1px solid var(--linea);
+  padding: 6px 9px;
+  cursor: pointer;
+}
+
+.assegnazione:hover,
+.assegnazione[aria-current="true"] {
+  background: var(--carta);
+}
+
+/* La riga scelta si legge perche' passa a inchiostro pieno mentre le altre
+ * restano nel tono attenuato. Prima qui c'era anche una barretta verticale a
+ * sinistra, ottenuta con un'ombra interna: era la striscia colorata sul bordo
+ * della card che il piano di design vieta, e non aggiungeva niente. La
+ * selezione e' gia' detta in altri tre modi: il fondo, `aria-current` per chi
+ * legge con un assistente, e sulla mappa il focolaio evidenziato con la sua
+ * rotta ispessita. */
+.assegnazione[aria-current="true"] .dove,
+.assegnazione[aria-current="true"] .quando {
+  color: var(--inchiostro);
+}
+
+.assegnazione .mezzo {
+  font-family: var(--cifre);
+  font-size: 12px;
+}
+
+.assegnazione .quando {
+  font-family: var(--cifre);
+  font-size: 12px;
+  color: var(--inchiostro-tenue);
+  text-align: right;
+}
+
+.assegnazione .dove {
+  font-size: 12.5px;
+  color: var(--inchiostro-tenue);
+  grid-column: 1 / -1;
+}
+
+.assegnazione .dove .wui {
+  color: var(--ocra-testo);
+  border-bottom: 1.5px solid var(--ocra);
+}
+
+.scegli-piano {
+  margin-bottom: 8px;
+}
+
+.scoperti {
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: var(--inchiostro-tenue);
+}
+
+.metriche {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px 14px;
+  margin-top: 10px;
+  font-size: 12.5px;
+}
+
+.metriche div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px dotted var(--linea);
+  padding-bottom: 2px;
+}
+
+.metriche dt,
+.metriche .voce {
+  color: var(--inchiostro-tenue);
+}
+
+.metriche .valore {
+  font-family: var(--cifre);
+  font-variant-numeric: tabular-nums;
+}
+
+#fonte-metriche:empty {
+  display: none;
+}
+
+#fonte-metriche {
+  margin-top: 6px;
+}
+
+/* Le note della pipeline sul piano mostrato. Restano dentro la sezione del
+ * piano, e non in fondo alla pagina, perche' spiegano quel piano: quanti
+ * mezzi erano fuori turno, quale vincolo non e' stato applicato, se il
+ * risolutore ha esaurito il tempo prima di dimostrare l'ottimo. */
+#note-piano:empty {
+  display: none;
+}
+
+#note-piano {
+  margin-top: 8px;
+}
+
+#note-piano > .nota + .nota {
+  margin-top: 4px;
+}
+
+/* --- validatore --- */
+
+.verdetto {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  border: 1px solid var(--linea-forte);
+  padding: 7px 9px;
+  background: var(--carta-alta);
+}
+
+.verdetto .esito {
+  font-weight: 700;
+  font-stretch: 88%;
+  letter-spacing: 0.03em;
+}
+
+/* L'esito non e' portato dal colore: la parola dice tutto, e il segno a
+ * sinistra e' pieno oppure vuoto, che si distingue anche in bianco e nero. */
+.verdetto::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  align-self: center;
+  border: 1.5px solid var(--ardesia);
+}
+
+.verdetto[data-esito="accettato"]::before {
+  background: var(--bosco);
+  border-color: var(--bosco);
+}
+
+.verdetto[data-esito="accettato"] .esito {
+  color: var(--bosco);
+}
+
+.verdetto[data-esito="respinto"]::before {
+  background: transparent;
+  border-color: var(--brace);
+  border-width: 2.5px;
+}
+
+.verdetto[data-esito="respinto"] .esito {
+  color: var(--brace);
+}
+
+/* La riga che il validatore scrive di suo pugno, sotto il verdetto. Porta la
+ * copertura ricalcolata, cioe' il numero che impedisce di leggere "Accettato"
+ * come "e' andata bene". */
+.riassunto-validatore {
+  margin-top: 6px;
+  font-family: var(--cifre);
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+
+.violazioni {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.violazione {
+  font-size: 12.5px;
+  line-height: 1.4;
+  padding-left: 11px;
+  border-left: 2px solid var(--brace);
+}
+
+.violazione.avviso {
+  border-left-style: dotted;
+  border-left-color: var(--ardesia);
+  color: var(--inchiostro-tenue);
+}
+
+.violazione .regola {
+  font-family: var(--cifre);
+  font-size: 11px;
+  color: var(--ardesia);
+  display: block;
+}
+
+.dettaglio-violazioni {
+  margin-top: 8px;
+}
+
+.dettaglio-violazioni > summary {
+  font-size: 12.5px;
+  color: var(--inchiostro-tenue);
+  cursor: pointer;
+}
+
+/* Quando non c'e' proprio niente da mostrare lo si scrive al posto del
+ * contenuto. Uno scheletro che non si riempie mai promette dati che non
+ * arriveranno. */
+/* Bordo uniforme, non una striscia spessa su un lato. Il colore brace dice
+ * gia' che qualcosa non ha funzionato, e ispessire un solo bordo non aggiunge
+ * informazione: aggiunge soltanto un vezzo grafico. */
+.guasto {
+  border: 1px solid var(--brace);
+  padding: 8px 10px;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+/* --- scheletri di caricamento --- */
+
+.scheletro {
+  background: var(--linea);
+  height: 11px;
+  margin-bottom: 6px;
+}
+
+.scheletro.corto {
+  width: 42%;
+}
+
+.scheletro.medio {
+  width: 72%;
+}
+
+/* ---------------------------------------------------------------- tempo */
+
+.barra-tempo {
+  border-top: 1px solid var(--linea-forte);
+  background: var(--carta);
+  padding: 8px 16px 6px;
+}
+
+.tempo-riga {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tempo-data {
+  font-family: var(--cifre);
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
+  white-space: nowrap;
+  min-width: 15ch;
+}
+
+.tempo-scorrevole {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 44px;
+}
+
+/* L'istogramma sta sotto lo scorrevole: la barra del tempo porta la densita'
+ * dei rilevamenti nella stagione, quindi si vede dove sta il picco prima
+ * ancora di premere play. Senza questo, lo scorrevole sarebbe una barra
+ * vuota e non varrebbe lo spazio che occupa. */
+.tempo-istogramma {
+  position: absolute;
+  inset: 0 0 10px 0;
+  width: 100%;
+  height: calc(100% - 10px);
+  display: block;
+}
+
+.tempo-cursore {
+  position: absolute;
+  top: 0;
+  bottom: 10px;
+  width: 1px;
+  background: var(--inchiostro);
+  pointer-events: none;
+}
+
+.tempo-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: transparent;
+  cursor: ew-resize;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.tempo-input::-webkit-slider-runnable-track {
+  height: 100%;
+  background: transparent;
+}
+
+.tempo-input::-moz-range-track {
+  height: 100%;
+  background: transparent;
+}
+
+.tempo-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 3px;
+  height: 100%;
+  background: var(--inchiostro);
+  border: 0;
+  border-radius: 0;
+}
+
+.tempo-input::-moz-range-thumb {
+  width: 3px;
+  height: 34px;
+  background: var(--inchiostro);
+  border: 0;
+  border-radius: 0;
+}
+
+.tempo-legenda {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 4px;
+  font-size: 11.5px;
+  color: var(--inchiostro-tenue);
+}
+
+.tempo-legenda .riempi {
+  flex: 1 1 auto;
+}
+
+.tempo-legenda a {
+  color: var(--inchiostro-tenue);
+}
+
+.finestra-attiva {
+  font-family: var(--cifre);
+  font-size: 11.5px;
+}
+
+.velocita {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--inchiostro-tenue);
+}
+
+.velocita select {
+  background: var(--carta-alta);
+  border: 1px solid var(--linea-forte);
+  border-radius: 2px;
+  padding: 2px 4px;
+  font-size: 12px;
+}
+
+.gioca {
+  width: 34px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.gioca svg {
+  display: block;
+}
+
+/* ---------------------------------------------------------------- schermi stretti */
+
+/* Sotto questa larghezza la console non ci sta: la pagina si impila e scorre.
+ * Non e' una versione ridotta, e' la stessa pagina in colonna, con la mappa
+ * alta quanto basta a leggerla. */
+@media (max-width: 900px) {
+  /* La riga della testata smette di essere alta 52 px: qui il nome e
+   * l'avvertenza vanno a capo, e una riga di altezza fissa li taglierebbe a
+   * meta'. L'avvertenza non e' sacrificabile alla larghezza dello schermo. */
+  .pagina {
+    height: auto;
+    min-height: 100dvh;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+
+  .console {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .zona-mappa {
+    height: 58vh;
+    min-height: 320px;
+    border-right: 0;
+    border-bottom: 1px solid var(--linea-forte);
+  }
+
+  .registro {
+    overflow: visible;
+  }
+
+  .testata {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 8px 16px;
+  }
+
+  .testata .avvertenza {
+    padding-left: 0;
+    border-left: 0;
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .tempo-data {
+    min-width: 0;
+    font-size: 12px;
+  }
+
+  .velocita {
+    display: none;
+  }
+}
+
+/* Con la preferenza di movimento ridotto nessuna transizione resta accesa.
+ * Il timelapse continua a funzionare: avanza a scatti fra le finestre invece
+ * di interpolare, e lo decide il codice, non questo foglio. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
