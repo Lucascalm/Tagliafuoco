@@ -11,9 +11,9 @@ Indice dei paragrafi:
 4. Quattro vie d'uscita
 5. La programmazione a N versioni e il risultato scomodo
 6. Il limite strutturale: quando sbaglia la specifica
-   6.1 Una specifica ambigua fa divergere le due implementazioni: il caso vero
-   6.1.1 E' successo una seconda volta, ed era peggio
-   6.2 Il caso in cui le due implementazioni concordano, e come si tara la tolleranza
+    - 6.1 Una specifica ambigua fa divergere le due implementazioni: il caso vero
+    - 6.1.1 E' successo una seconda volta, ed era peggio
+    - 6.2 Il caso in cui le due implementazioni concordano, e come si tara la tolleranza
 7. Che cosa rende indipendente il nostro validatore
 8. Le regole di validazione e cosa protegge ciascuna
 9. La tolleranza numerica
