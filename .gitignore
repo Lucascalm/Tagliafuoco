@@ -30,3 +30,6 @@ Thumbs.db
 
 # appunti di lavoro, non fanno parte del progetto
 appunti/
+
+# scarti della shell
+*.stackdump

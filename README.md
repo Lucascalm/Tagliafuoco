@@ -45,13 +45,13 @@ un oggetto tipizzato con dodici tipi di vincolo possibili, intervalli numerici
 dichiarati e nessun campo libero. Non puo' emettere un'assegnazione nemmeno
 volendo, perche' non esiste un posto dove scriverla.
 
-La ragione e' misurabile. Quando un modello linguistico passa dai problemi di
-ottimizzazione da manuale a quelli realistici, l'accuratezza con cui formula il
-modello crolla, e la mediana riportata in letteratura scende da circa il 94 per
-cento a circa il 22 per cento. Se la formulazione e' la parte che il modello
-sbaglia, allora la formulazione la scrive una persona, una volta, e la si
+La ragione e' la verificabilita'. Un modello di frontiera oggi un modello di
+ottimizzazione lo sa scrivere, ma un modello matematico generato a ogni ordine non si puo' collaudare
+una volta per tutte, e un vincolo dimenticato non produce un errore
+ma un piano troppo buono.
+Per questo la formulazione la scrive una persona, una volta, e la si
 sottopone a test. Al modello resta il riconoscimento dell'intento, che e' il
-compito in cui i modelli linguistici sono davvero bravi.
+compito che si puo' misurare su un repertorio chiuso.
 
 Ed e' proprio per questo che serve il validatore. Un traduttore ristretto
 sbaglia meno, ma sbaglia ancora, e il risolutore a valle puo' avere un errore

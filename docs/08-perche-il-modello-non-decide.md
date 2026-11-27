@@ -9,7 +9,7 @@ Indice dei paragrafi:
 
 1. La domanda a cui questo capitolo risponde
 2. Quattro modi di mettere un modello linguistico dentro un ottimizzatore
-3. Il dato che motiva la scelta
+3. Le ragioni che motivano la scelta
 4. Restringere lo spazio degli errori possibili
 5. Perche' UNSUPPORTED non e' una resa
 6. La catena di responsabilita'
@@ -235,28 +235,21 @@ da quale frase e con quale conseguenza.
 | formulatore | il modello matematico | vincoli mancanti o di troppo | solo da chi saprebbe scriverlo |
 | traduttore | vincoli tipizzati | mappatura fra frase e repertorio | si', dodici righe con la frase accanto |
 
-## 3. Il dato che motiva la scelta
+## 3. Le ragioni che motivano la scelta
 
 Il ruolo del formulatore merita un paragrafo suo perche' e' il piu' seducente e
 perche' la scelta di Tagliafuoco si regge sul non averlo preso.
 
-Il risultato, riportato in letteratura e ripreso in `SPEC.md` e nel docstring di
-`nlu/schema.py`, e' questo: quando si misura l'accuratezza con cui un modello
-linguistico formula un problema di ottimizzazione, i risultati sui problemi da
-manuale sono molto alti, e sui problemi realistici l'accuratezza crolla. La
-mediana riportata scende da circa il 94 per cento a circa il 22 per cento.
+Una nota prima di cominciare. La prima versione di questo capitolo citava una
+cifra presa dalla letteratura sui benchmark di formulazione automatica. L'ho
+tolta: non ne avevo verificato la fonte, e i modelli di frontiera di oggi
+formulano molto meglio di quanto quella cifra lasciasse intendere. In alcune
+prove fatte a novembre 2026 su un problema di turni con undici regole, un
+modello recente ha scritto e risolto il modello CP-SAT al primo tentativo.
 
-Una premessa onesta prima di usare la cifra. Non e' una misura mia, non ho
-eseguito questo esperimento, e non cito autori, anno e pagina perche' fabbricare
-un riferimento preciso sarebbe peggio che non darne nessuno. Presentala per
-quello che e': un ordine di grandezza riportato in letteratura, che indica un
-crollo di circa quattro volte. Se a un colloquio ti chiedono la fonte, la
-risposta corretta e' "e' un risultato riportato in letteratura sui benchmark di
-formulazione automatica, l'ho usato come ordine di grandezza e non come misura
-mia": vale piu' di una citazione inventata, e chi ti intervista lo sa.
-
-La cifra e' credibile, e saper spiegare perche' e' piu' utile che saperla
-ripetere. Cinque cause.
+La scelta di progetto quindi non si regge su "il modello sbaglia", ma su quanto
+e' difficile verificare un modello matematico generato ogni volta, soprattutto
+su un problema reale. Cinque ragioni.
 
 La distribuzione di addestramento. I problemi da manuale (lo zaino, il
 trasporto, l'assegnazione, lo scheduling di officina) compaiono migliaia di
@@ -290,7 +283,7 @@ La severita' della metrica. Formulare correttamente vuol dire azzeccare tutti i
 vincoli insieme, non la maggior parte. Se un problema realistico ne ha quindici
 e la probabilita' di sbagliarne uno e' anche solo del dieci per cento, la
 probabilita' di azzeccarli tutti e' 0,9 elevato a 15, cioe' circa il 20,6 per
-cento. Non serve nessun fallimento drammatico per arrivare a un numero come 22:
+cento. Non serve nessun fallimento drammatico per arrivare a un numero basso:
 bastano una competenza per vincolo del novanta per cento e una metrica che non
 fa sconti sul parziale.
 
@@ -574,15 +567,13 @@ rivedere il codice generato serve saperlo scrivere. Traduttore: mappa la frase
 su un repertorio chiuso, rompe sulla mappatura, ma l'errore e' un oggetto
 tipizzato con la frase di origine accanto, quindi si vede e si misura.
 
-**Cosa dice il dato sul 94 e sul 22 per cento, e quanto ti ci appoggi?** Dice
-che l'accuratezza con cui un modello formula un problema di ottimizzazione e'
-molto alta sui problemi da manuale e crolla di circa quattro volte su quelli
-realistici. Lo uso come ordine di grandezza riportato in letteratura, non come
-misura mia, e non cito autori e anno perche' non li ho verificati. Il valore
-dell'argomento sta nelle cause, verificabili per conto proprio: i problemi da
-manuale stanno nella distribuzione di addestramento e hanno forma canonica,
-quelli reali hanno vincoli impliciti che nessuno scrive, dati sporchi, obiettivi
-in conflitto, e una metrica che richiede di azzeccarli tutti insieme.
+**Un modello di frontiera oggi sa formulare un problema di ottimizzazione:
+perche' non farglielo fare?** Perche' il punto non e' quanto e' bravo, ma quanto
+si puo' verificare quello che produce. Un modello matematico generato a ogni ordine non si puo' collaudare una
+volta per tutte, e un vincolo dimenticato non produce un errore
+ma un piano troppo buono.
+I problemi reali hanno vincoli impliciti che nessuno scrive, dati sporchi,
+obiettivi in conflitto, e una metrica che richiede di azzeccarli tutti insieme.
 
 **Perche' l'errore del traduttore e' meno grave di quello del formulatore, se
 sbagliano entrambi?** Perche' cambia l'insieme degli errori possibili. Il

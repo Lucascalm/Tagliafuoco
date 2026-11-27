@@ -7,10 +7,9 @@ campo e' tipizzato, ogni enumerazione e' chiusa, ogni valore numerico ha un
 intervallo dichiarato. Quello che non entra in questo schema non entra nel
 sistema.
 
-Il motivo e' misurabile. Quando un modello linguistico deve formulare da solo
-un modello di ottimizzazione su problemi realistici, l'accuratezza della
-formulazione crolla rispetto agli esercizi da manuale (la mediana riportata in
-letteratura passa da circa il 94 per cento a circa il 22 per cento). La
+Il motivo e' la verificabilita': un modello matematico generato a ogni ordine
+non si puo' collaudare una volta per tutte, e un vincolo dimenticato non
+produce un errore ma un piano troppo buono. La
 conseguenza di progetto e' che il modello matematico deve essere scritto a
 mano una volta sola, e al modello linguistico resta un compito piu' stretto:
 riconoscere quale vincolo, fra quelli gia' implementati, il coordinatore sta

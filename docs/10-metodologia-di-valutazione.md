@@ -256,11 +256,7 @@ non cambiare il piano (il vincolo non mordeva) e una traduzione perfetta puo' ac
 piano mediocre. Sono due compiti diversi e vogliono due valutazioni diverse.
 
 Vale la pena ricordare perche' il traduttore ha un compito cosi' stretto, visto che e' la
-scelta di progetto che questa valutazione deve mettere alla prova. Il committente riporta che
-quando un modello linguistico deve formulare da solo un modello di ottimizzazione,
-l'accuratezza mediana passa da circa il 94 per cento sugli esercizi da manuale a circa il 22
-per cento sui problemi realistici. E' la cifra che ci e' stata fornita e che il progetto
-assume, non una misura fatta qui. La conseguenza e' che il modello matematico si scrive a mano
+scelta di progetto che questa valutazione deve mettere alla prova. Un modello matematico generato a ogni ordine non si puo' collaudare una volta per tutte, e un vincolo dimenticato non produce un errore ma un piano troppo buono. La conseguenza e' che il modello matematico si scrive a mano
 una volta sola e al traduttore resta il compito di riconoscere quale vincolo gia' implementato
 l'ordine sta chiedendo: e' quel compito, e non altro, che va misurato.
 

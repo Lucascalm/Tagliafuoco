@@ -50,10 +50,7 @@ Qui il suo unico output ammesso e' un `ConstraintSet` tipizzato, definito in
 `src/tagliafuoco/nlu/schema.py`. Non emette assegnazioni, non emette codice,
 non emette numeri fuori dagli intervalli dichiarati.
 
-La ragione e' misurabile: quando un modello linguistico deve formulare da solo
-un modello di ottimizzazione, l'accuratezza regge sugli esercizi da manuale e
-crolla sui problemi realistici (la mediana riportata passa da circa il 94 per
-cento a circa il 22 per cento). Per questo il modello matematico e' scritto a
+La ragione e' la verificabilita': un modello matematico generato a ogni ordine non si puo' collaudare una volta per tutte, e un vincolo dimenticato non produce un errore ma un piano troppo buono. Per questo il modello matematico e' scritto a
 mano una volta sola, e al modello linguistico resta il compito piu' stretto di
 riconoscere quale vincolo gia' implementato l'ordine sta chiedendo.
 

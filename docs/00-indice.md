@@ -3,7 +3,8 @@
 Questa cartella non e' la documentazione d'uso del progetto: quella sta nel
 README. Qui c'e' un capitolo per ciascun argomento che serve per capire il
 codice e per giustificare le scelte fatte, dal telerilevamento alla
-programmazione a vincoli.
+programmazione a vincoli. Sono anche i miei appunti di studio: in piu' punti dicono
+come difendere una scelta davanti a chi fa domande, per esempio a un colloquio.
 
 Ogni capitolo segue la stessa struttura. Parte da un problema concreto del
 progetto, introduce la teoria che lo risolve, torna a mostrare come il progetto
